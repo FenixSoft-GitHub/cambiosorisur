@@ -1,0 +1,65 @@
+---
+import Card from "./Card.astro";
+import Address from "./icons/Address.astro";
+import Clock from "./icons/Clock.astro";
+import Email from "./icons/Email.astro";
+import Phone from "./icons/Phone.astro";
+---
+
+<section class="mx-auto w-full max-w-[1400px] p-6 sm:p-20">
+    <h1
+        class="mx-auto mb-10 text-balance text-center text-xl font-semibold uppercase tracking-wide md:text-4xl"
+    >
+        ¿Necesitas contactarnos?
+    </h1>
+    <p class="mx-auto mb-10 text-balance text-center text-sm tracking-wide md:text-xl">
+        Póngase en contacto con el servicio al cliente de <strong>Cambios OriSur</strong>
+    </p>
+
+    <Card 
+        title="Teléfono", 
+        body="+58 412-499 88 11"
+    >
+        <div 
+            slot="icons" 
+        >
+            <Phone />
+        </div>
+    </Card>
+
+    <Card 
+        title="Horarios", 
+        body="Lun - Vie: 8 am - 6 pm"
+        subbody="Sáb y Dom: Cerrado"
+    >
+        <div 
+            slot="icons" 
+        >
+            <Clock />
+        </div>
+    </Card>
+
+    <Card 
+        title="Email",
+        body="alfaortiz.sis@gmail.com"
+    >
+        <div 
+            slot="icons" 
+        >
+            <Email />
+        </div>
+    </Card>
+
+    <Card 
+        title="Dirección", 
+        body="Urb. Las Cayenas"
+        subbody="Maturín - Monagas - Venezuela"
+    >
+        <div 
+            slot="icons" 
+        >
+            <Address />
+        </div>
+    </Card>
+    
+</section>

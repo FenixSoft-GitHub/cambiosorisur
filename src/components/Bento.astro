@@ -1,0 +1,126 @@
+---
+import BentoItem from "./BentoItem.astro";
+---
+
+<section 
+    class={`
+        w-full max-w-[1400px] 
+        grid lg:grid-cols-10 auto-rows-[30rem] gap-4 
+        mx-auto p-6 md:p-12 lg:p-20
+    `}
+>
+    <BentoItem 
+        class="col-span-10 lg:col-span-4" 
+        title="¿Cómo enviar dinero?"
+    >
+        <div 
+            slot="image" 
+            class="
+                background transition-scale absolute bottom-0 left-0 top-0  
+                -z-10 w-full h-full 
+                bg-cover bg-center bg-no-repeat opacity-80 bg-blend-luminosity
+                duration-1000 ease-in-out group-hover:scale-110"
+            style="background-image: url('/Envio.webp')"
+        >
+        </div>
+        <p 
+            slot="content" 
+            class="max-w-xl text-base md:text-lg"
+            set:html="Ponte en contacto con nosotros, indica la moneda de origen, el monto a enviar, la entidad que recive y la moneda destino. Así de simple es enviar el dinero a tu ser querido."
+        />
+    </BentoItem>     
+    
+    <BentoItem 
+        class="col-span-10 lg:col-span-6" 
+        title="Nuestra Prioridad"
+        subtitle="Te acerca a los que más quieres" 
+    >
+        <div 
+            slot="image"
+            class="background transition-scale absolute bottom-0 left-0 top-0
+                -z-10 h-full w-full 
+                bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+            style="background-image: url('/Family.webp')"
+        >
+        </div>
+        <p 
+            slot="content" 
+            class="max-w-xl text-base md:text-lg"
+            set:html="Estamos creciendo para estar más cerca de ti. Nuestra red de servicios se expande constantemente para llegar a más personas en toda Latinoamérica. Brindándote acceso a un mayor número de opciones de envío. Con una amplia variedad de monedas y tipos de cambio, puedes elegir la que mejor se adapte a tus necesidades y enviar dinero de manera rápida, segura y conveniente."
+        />
+    </BentoItem>
+    
+    <BentoItem 
+        class="col-span-10 lg:col-span-6" 
+        title="Nuestro personal calificado"
+    >
+        <div 
+            slot="image"
+            class="background transition-scale absolute bottom-0 left-0 top-0
+                    -z-10 h-full w-full 
+                    bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+            style="background-image: url('/Team.jpg')"
+        >
+        </div>
+        <p 
+            slot="content"
+            class="max-w-xl text-base md:text-lg"
+            set:html="Nuestro equipo de profesionales te brinda un servicio de primera calidad. Con años de experiencia en el sector, nuestros agentes están altamente capacitados para atender tus necesidades de manera rápida y eficiente. Nos enorgullecemos de ofrecer una atención personalizada y resolver cualquier duda que puedas tener. Tu satisfacción es nuestra prioridad."
+        />
+    </BentoItem>
+    
+    <BentoItem 
+        class="col-span-10 lg:col-span-4" 
+        title="¡Sistema de pago!" 
+    >
+        <div 
+            slot="image"
+            class="background transition-scale absolute bottom-0 left-0 top-0
+                -z-10 h-full w-full 
+                bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+            style="background-image: url('/transferencia-bancaria.jpg')"
+        >
+        </div>
+        <p
+            slot="content"
+            class="max-w-xl text-base md:text-lg"
+            set:html="Nuestro sistema de pago seguro y confiable te permite enviar dinero de forma rápida y sencilla, utilizando una amplia variedad de métodos. Con nuestro equipo de soporte siempre a tu disposición, podrás realizar tus transacciones con total tranquilidad y confianza."
+        />
+    </BentoItem>
+    
+</section>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const backgrounds = document.querySelectorAll(
+      ".background"
+    ) as NodeListOf<HTMLElement>
+
+    if (window.IntersectionObserver == null) {
+      backgrounds.forEach((bkg) => {
+        bkg.style.backgroundImage = "url('" + bkg.dataset.src + "')"
+      })
+      return
+    }
+
+    function handleIntersection(entries: IntersectionObserverEntry[]) {
+      entries.map((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement
+          const { style, dataset } = target
+          // Item has crossed our observation
+          // threshold - load src from data-src
+          style.backgroundImage = "url('" + dataset.src + "')"
+          // Job done for this item - no need to watch it!
+          observer.unobserve(entry.target)
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      rootMargin: "100px",
+    })
+
+    backgrounds.forEach((bkg) => observer.observe(bkg))
+  })
+</script>
