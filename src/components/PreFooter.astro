@@ -1,5 +1,6 @@
 ---
 import Card from "./Card.astro";
+import FormEmail from "./FormEmail.astro";
 import Address from "./icons/Address.astro";
 import Clock from "./icons/Clock.astro";
 import Email from "./icons/Email.astro";
@@ -16,50 +17,56 @@ import Phone from "./icons/Phone.astro";
         Póngase en contacto con el servicio al cliente de <strong>Cambios OriSur</strong>
     </p>
 
-    <Card 
-        title="Teléfono", 
-        body="+58 412-499 88 11"
-    >
-        <div 
-            slot="icons" 
-        >
-            <Phone />
-        </div>
-    </Card>
+    <div class="lg:flex-row mx-auto w-full flex flex-col gap-14">
+        <div class="flex flex-col lg:w-1/2">
+            <Card 
+                title="Teléfono", 
+                body="+58 412-499 88 11"
+            >
+                <div 
+                    slot="icons" 
+                >
+                    <Phone />
+                </div>
+            </Card>
 
-    <Card 
-        title="Horarios", 
-        body="Lun - Vie: 8 am - 6 pm"
-        subbody="Sáb y Dom: Cerrado"
-    >
-        <div 
-            slot="icons" 
-        >
-            <Clock />
-        </div>
-    </Card>
+            <Card 
+                title="Horarios", 
+                body="Lun - Vie: 8 am - 6 pm"
+                subbody="Sáb y Dom: Cerrado"
+            >
+                <div 
+                    slot="icons" 
+                >
+                    <Clock />
+                </div>
+            </Card>
 
-    <Card 
-        title="Email",
-        body="alfaortiz.sis@gmail.com"
-    >
-        <div 
-            slot="icons" 
-        >
-            <Email />
-        </div>
-    </Card>
+            <Card 
+                title="Email",
+                body="alfaortiz.sis@gmail.com"
+            >
+                <div 
+                    slot="icons" 
+                >
+                    <Email />
+                </div>
+            </Card>
 
-    <Card 
-        title="Dirección", 
-        body="Urb. Las Cayenas"
-        subbody="Maturín - Monagas - Venezuela"
-    >
-        <div 
-            slot="icons" 
-        >
-            <Address />
+            <Card 
+                title="Dirección", 
+                body="Urb. Las Cayenas"
+                subbody="Maturín - Monagas - Venezuela"
+            >
+                <div 
+                    slot="icons" 
+                >
+                    <Address />
+                </div>
+            </Card>
         </div>
-    </Card>
-    
+        <div class="mb-8">
+            <FormEmail />
+        </div>
+    </div>
 </section>

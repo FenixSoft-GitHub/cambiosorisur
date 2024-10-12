@@ -2,7 +2,7 @@
 import Logo from "./Logo.astro";
 ---
 
-<div class="relative h-dvh w-full max-w-[100vw] md:aspect-video md:h-[80vh] xl:h-full">
+<div class="relative h-dvh w-full max-w-[100vw] md:h-[80vh] xl:h-full">
     <div
         class="absolute inset-0 h-full justify-center z-10 m-auto flex flex-col items-center w-full"
     >
@@ -10,7 +10,7 @@ import Logo from "./Logo.astro";
             class="absolute z-10 animate-fade-up flex justify-center items-center gap-8 flex-col"
         >
             <h1
-                class="subtitle flex items-center gap-5 text-4xl md:text-6xl lg:gap-14 lg:text-7xl font-lexend font-light mb-10"
+                class="subtitle flex items-center gap-5 text-4xl md:text-6xl lg:gap-14 lg:text-7xl mb-10 font-extrabold"
             >
                 <span>O</span>
                 <span>R</span>
@@ -42,6 +42,10 @@ import Logo from "./Logo.astro";
 </div>
 
 <style>
+    span {
+        font-family: 'Tomaso';
+    }
+
     .subtitle {
         text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
     }
