@@ -1,7 +1,9 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 // Supports weights 100-900
 import '@fontsource-variable/onest';
+import Footer from '@/components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -26,24 +28,35 @@ const { title, description } = Astro.props;
 			type="font/woff2"
 			crossorigin="anonymous"
 		/>
-		<link 
+		<!-- <link 
 			rel="preload"
 			href="/fonts/jura.woff2"
 			as="font"
 			type="font/woff2"
 			crossorigin="anonymous"
-		/>
+		/> -->
+		<ViewTransitions />
 	</head>
 	<body>
 		<Header/>
 		<slot />
 	</body>
+	<Footer/>
 </html>
 
 <style is:global>
 	:root {
 		color-scheme: dark;
+		--entry-animation: -20px;
+        --cover-animation: 20px;
 	}
+
+	@media (min-width: 1400px) {
+    	:root {
+          --entry-animation: -100px;
+          --cover-animation: 100px;
+        }
+    }
 
 	 @font-face {
         font-family: "Tomaso";
@@ -87,5 +100,9 @@ const { title, description } = Astro.props;
 		backdrop-filter: blur(10px);
 		}
 	}
+
+	.shadown {
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+    }
 </style>
 

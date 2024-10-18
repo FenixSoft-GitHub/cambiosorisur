@@ -1,0 +1,123 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import HeroContainer from '../HeroContainer.astro';
+---
+
+<Layout title="Nosotros" description="Nosotros">
+    <HeroContainer img='/Paises.webp'>
+        <span class="shadown text-6xl font-bold tracking-widest text-wrap font-tomaso">Países</span>
+    </HeroContainer>
+
+    <main>
+
+        <section id="trophies-text" class="text-xl text-left px-20 max-w-[70ch] text-pretty mx-auto mt-48">
+            <h1  class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide uppercase">
+                Cambios OriSur
+            </h1>
+            <p>
+                Envía dinero a más de 10 países con <strong>Cambios Orisur</strong>. Nuestra amplia red de agentes te permite <strong>enviar remesas a familiares y amigos</strong> en toda la región  de forma rápida y segura. Estamos presentes donde más nos necesites. Ofrecemos una variedad de opciones de envío para que elijas la que mejor se adapte a tus necesidades, incluyendo envíos a cuentas bancarias y pagos en efectivo. Con <strong>Cambios Orisur</strong>, tus seres queridos recibirán tu dinero en <strong>cuestión de minutos</strong>.
+            </p>
+        </section>
+
+
+        <section class="grid lg:justify-items-center place-items-center lg:grid-cols-2 grid-cols-1 gap-4 max-w-5xl mx-auto mt-20 mb-20">
+            <div id="trophies" class="flex flex-col  lg:gap-5 items-center w-48 mb-8">
+                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/venezuela.webp" alt="Bandera de Venezuela">
+                <h1 class="texto text-2xl md:text-3xl lg:text-3xl font-semibold tracking-tight hover:tracking-wide">Venezuela</h1>
+            </div>
+            <div id="theater" class="flex flex-col  lg:gap-5 items-center w-48 mb-8">
+                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/ecuador.webp" alt="Bandera de Ecuador">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Ecuador</h1>
+            </div>
+            <div id="trophies" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
+                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/argentina.webp" alt="Bandera de Argentina">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Argentina</h1>
+            </div>
+            <div id="theater" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
+                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/chile.webp" alt="Bandera de Chile">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Chile</h1>
+            </div>
+            <div id="trophies" class="flex flex-col lg:gap-5 items-center w-48 h-full mb-8">
+                <img  class="object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/colombia.webp" alt="Bandera de Colombia">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Colombia</h1>
+            </div>
+            <div id="theater" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
+                <img class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/peru.webp" alt="Bandera de Perú">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Perú</h1>
+            </div>
+            <div id="trophies" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
+                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/brazil.webp" alt="Bandera de Brasil">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Brasil</h1>
+            </div>
+            <div id="theater" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
+                <img class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/mexico.webp" alt="Bandera de México">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">México</h1>
+            </div>
+            <div id="trophies" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
+                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/america.webp" alt="Bandera de Estados Unidos">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">USA</h1>
+            </div>
+            <div id="theater" class="flex flex-col lg:gap-5 items-center w-48 h-48 mb-8">
+                <img class="object-cover w-full h-full duration-1000 ease-in-out hover:scale-110" src="/mapas/dominican.webp" alt="Bandera de República Dominicana">
+                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">República Dominicana</h1>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .texto {
+        text-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+    }
+
+    #theater,
+    #trophies-text h1,
+    #trophies-text p {
+        animation: cover-animation linear both;
+        animation-timeline: view();
+    }
+    #theater-text h1,
+    #theater-text p,
+    #trophies {
+        animation: entry-animation linear both;
+        animation-timeline: view();
+    }
+    #theater {
+        animation-range: entry 10% cover 40%;
+    }
+    #theater-text h1 {
+        animation-range: entry 10% cover 30%;
+    }
+    #theater-text p {
+        animation-range: entry 10% cover 20%;
+    }
+    #trophies {
+        animation-range: entry 30% cover 50%;
+    }
+    #trophies-text h1 {
+        animation-range: entry 30% cover 40%;
+    }
+    #trophies-text p {
+        animation-range: entry 20% cover 30%;
+    }
+    @keyframes entry-animation {
+        0% {
+        opacity: 0;
+        translate: var(--entry-animation) 0;
+        }
+        100% {
+        opacity: 1;
+        translate: 0 0;
+        }
+    }
+    @keyframes cover-animation {
+        0% {
+        opacity: 0;
+        translate: var(--cover-animation) 0;
+        }
+        100% {
+        opacity: 1;
+        translate: 0 0;
+        }
+    }
+</style>

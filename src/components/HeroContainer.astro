@@ -1,0 +1,25 @@
+---
+interface Props {
+  img: string
+}
+
+const { img } = Astro.props
+---
+
+<div class="bg-no-repeat bg-cover relative h-[80vh] w-full max-w-[100vw]">
+  <img
+    class="cp-v  w-full h-screen object-fill object-top animate-fade-down animate-duration-[2s] -z-10"
+    src={img}
+    alt="ESLAND cover"
+  />
+  <img
+    class="w-full h-screen absolute -bottom-48 blur-3xl -z-40"
+    src={img}
+    alt="ESLAND cover"
+  />
+  <div
+    class="absolute inset-0 m-auto w-full h-full flex justify-center flex-col items-center"
+  >
+    <slot />
+  </div>
+</div>

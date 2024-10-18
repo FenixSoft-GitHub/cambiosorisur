@@ -1,4 +1,5 @@
 ---
+import Button from "./Button";
 import Logo from "./Logo.astro";
 ---
 
@@ -18,32 +19,32 @@ import Logo from "./Logo.astro";
                     </a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="#">
+                    <a class="hover:underline" href="/nosotros">
                         Nosotros
                     </a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="#">
+                    <a class="hover:underline" href="/paises">
                         Países
                     </a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="#">
+                    <a class="hover:underline" href="/comofunciona">
                         Como Funciona
                     </a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="#">
+                    <a class="hover:underline" href="contacto">
                         Contacto
                     </a>
                 </li>
             </ul>
         </nav>
-        <a  
-            class="border rounded-full inline-block border-white px-10 py-2 justify-self-end hover:bg-white hover:text-black duration-300" 
-            href="#"
+        <Button
+            className="md:py-2 md:ml-auto md:text-base lg:text-base"
+            url="#"
         >
             Acceso
-        </a>
+        </Button>
     </div>
 </header>

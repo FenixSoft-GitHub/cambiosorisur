@@ -1,0 +1,201 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import HeroContainer from '../HeroContainer.astro';
+import Logo from '../Logo.astro';
+import PreguntasItem from '../PreguntasItem.astro';
+---
+
+<Layout title="¿Como Funciona?" description="¿Como Funciona?">
+    <HeroContainer img='/ComoFunciona2.jpeg'>
+        <span class="shadown text-6xl font-bold tracking-widest font-tomaso">
+            ¿Cómo Funciona?
+        </span>
+    </HeroContainer>
+
+    <main class="pb-24 mt-40">
+        
+        <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8">
+            <div id="theater-text" class="md:w-1/2 space-y-4">
+                <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
+                >
+                    Envía dinero fácil y rápido.
+                </h1>
+                <p>Reserva tu cupo ahora mismo por WhatsApp. Especifica el nombre completo del beneficiario y el monto en la moneda deseada.</p>
+            </div>
+            <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
+                <img
+                    class="object-cover w-full h-full rounded-md"
+                    height={500}
+                    src="/Manos.webp"
+                    style={{
+                        aspectRatio: "812/556",
+                        objectFit: "cover",
+                    }}
+                    width={500}
+                />
+            </div>
+        </section>
+
+        <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
+        >
+            <div id="trophies" class="mt-6 md:mt-0 md:w-1/2">
+                <img
+                    class="object-cover w-full h-full rounded-md"
+                    height={556}
+                    src="/ContarDinero.webp"
+                    style={{
+                        aspectRatio: "812/556",
+                        objectFit: "cover",
+                    }}
+                    width={812}
+                />
+            </div>
+            <div id="trophies-text" class="md:w-1/2 space-y-4">
+                <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
+                >
+                    Realiza el pago en la moneda de tu país.
+                </h1>
+                <p set:html="Efectua una transferencia bancaria o un depósito en efectivo en tu moneda local." />
+                
+            </div>
+        </section>
+
+        <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8">
+            <div id="theater-text" class="md:w-1/2 space-y-4">
+                <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
+                >
+                    Nosotros nos encargamos del resto.
+                </h1>
+                <p>Una vez confirmado tu pago, procederemos a transferir los fondos de inmediato a la persona indicada.</p>
+            </div>
+            <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
+                <img
+                    class="object-cover w-full h-full rounded-md"
+                    height={500}
+                    src="/Entrega.webp"
+                    style={{
+                        aspectRatio: "812/556",
+                        objectFit: "cover",
+                    }}
+                    width={500}
+                />
+            </div>
+        </section>
+
+        <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
+        >
+            <div id="trophies" class="mt-6 md:mt-0 md:w-1/2">
+                <img
+                    class="object-cover w-full h-full rounded-md"
+                    height={556}
+                    src="/Transferencia.webp"
+                    style={{
+                        aspectRatio: "812/556",
+                        objectFit: "cover",
+                    }}
+                    width={812}
+                />
+            </div>
+            <div id="trophies-text" class="md:w-1/2 space-y-4">
+                <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
+                >
+                    Confirmación de Transacción
+                </h1>
+                <p set:html="Te proporcionaremos una confirmación detallada de la transacción, incluyendo un comprobante que podrás compartir con el beneficiario como evidencia de la entrega." />
+            </div>
+        </section>
+
+        <section class="lg:text-xl text-left px-20 max-w-[70ch] text-pretty mx-auto my-10">
+            <div class="flex items-center justify-center mb-4">
+                <Logo
+                    class="absolute w-16 m-auto blur-md opacity-0 transition- opacity duration-300 hover:opacity-100"
+                />
+                <Logo class="w-16 text-white m-auto" />
+            </div>
+            <h1 class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide uppercase">
+                Preguntas frecuentes
+            </h1>
+            <PreguntasItem
+                questions='¿Cómo puedo enviar dinero a otra persona?'
+                answers='Con nuestro servicio de envíos de dinero, lo puedes hacer simplemente contactándonos a nuestro WhatsApp, allí te indicaremos los datos e información necesaria para enviar con seguridad.'
+            />
+            <PreguntasItem
+                questions='¿Cómo se envia dinero por celular?'
+                answers='Con Cambios OriSur, solamente con contactarnos vía WhatsApp, podrás iniciar el proceso de envío. Visita: https://www.cambiosorisur.com donde encontraras nuestra información de contacto.'
+            />
+            <PreguntasItem
+                questions='¿Qué formas de pago se aceptan para enviar dinero a Venezuela u otro país?'
+                answers='Recibimos dinero a través de depósitos en efectivo, transferencias locales, Binance y plataformas de pago electrónico.'
+            />
+            <PreguntasItem
+                questions='Al ordenar una remesa, ¿Cuánto tiempo demorará la transferencia a la cuenta de destino?'
+                answers='El tiempo de transferencia final a la cuenta de destino depende del banco de su beneficiario. Si Cambios OriSur tiene cuentas bancarias en el mismo banco de destino, podemos garantizarle que transfiera y reciba el dinero el mismo día. De lo contrario, la transferencia entrará en vigencia el siguiente día hábil bancario después de la 1:00 p.m.'
+            />
+            <PreguntasItem
+                questions='¿Cuál es el tipo de cambio aplicado para mis transferencias?'
+                answers='Ofrecemos tipos de cambio con un excelente retorno de los fondos que transfiere a su familia, amigos o negocios. Para conocer el tipo de cambio del país de donde envía, escribanos al WhatsApp y haga su consulta, con gusto le atenderemos.'
+            />
+            <PreguntasItem
+                questions='¿Cómo funciona el envío de remesas, giros, o transferencias de dinero?'
+                answers='Habiendo acordado con nosotros el tipo de cambio (por WhatsApp o Telegram), dependiendo del país de origen, se acordará la cantidad que desea enviar.'
+            />
+            <PreguntasItem
+                questions='¿Qué sucede después de completar el pago?'
+                answers='Procederemos a verificar que hemos recibido los fondos de acuerdo con el método de pago que elegiste. Luego transferiremos los fondos a la cuenta de destino y finalmente, le notificaremos que el pago se realizó mediante un recibo o una captura de pantalla de la transacción.'
+            />
+        </section>
+    </main>
+</Layout>
+
+<style>
+  #theater,
+  #trophies-text h1,
+  #trophies-text p {
+    animation: cover-animation linear both;
+    animation-timeline: view();
+  }
+  #theater-text h1,
+  #theater-text p,
+  #trophies {
+    animation: entry-animation linear both;
+    animation-timeline: view();
+  }
+  #theater {
+    animation-range: entry 10% cover 40%;
+  }
+  #theater-text h1 {
+    animation-range: entry 10% cover 30%;
+  }
+  #theater-text p {
+    animation-range: entry 10% cover 20%;
+  }
+  #trophies {
+    animation-range: entry 30% cover 50%;
+  }
+  #trophies-text h1 {
+    animation-range: entry 30% cover 40%;
+  }
+  #trophies-text p {
+    animation-range: entry 20% cover 30%;
+  }
+  @keyframes entry-animation {
+    0% {
+      opacity: 0;
+      translate: var(--entry-animation) 0;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+  @keyframes cover-animation {
+    0% {
+      opacity: 0;
+      translate: var(--cover-animation) 0;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+</style>
