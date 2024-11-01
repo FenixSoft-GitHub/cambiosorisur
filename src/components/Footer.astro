@@ -1,4 +1,5 @@
 ---
+import WhatsApp from "./icons/WhatsApp.astro";
 import FaceBook from "./icons/FaceBook.astro";
 import Instagram from "./icons/Instagram.astro";
 import X from "./icons/X.astro";
@@ -9,80 +10,112 @@ import Logo from "./Logo.astro";
 <footer class="bg-black/40">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
-          <div class="mb-6 md:mb-0">
-            <a 
-                href="/" 
-                class="-mt-16 flex items-center justify-center mb-4">
-                <Logo
-                    class="absolute w-20 m-auto blur-md opacity-0 transition-opacity duration-300 hover:opacity-100"
-                />
-                <Logo class="h-auto w-20" />
-            </a>
-          </div>
-          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
-              <div>
-                  <h2 class="mb-6 text-sm font-semibold  uppercase">Legal</h2>
-                  <ul class="text-gray-500 font-medium">
-                      <li class="">
-                          <a href="https://flowbite.com/" class="hover:underline">Aviso Legal</a>
-                      </li>
-                      <li>
-                          <a href="https://tailwindcss.com/" class="hover:underline">Privacidad</a>
-                      </li>
-                      <li>
-                          <a href="https://tailwindcss.com/" class="hover:underline">Cookies</a>
-                      </li>
-                  </ul>
-              </div>
-              <div>
-                  <h2 class="mb-6 text-sm font-semibold uppercase">Web Map</h2>
-                  <ul class="text-gray-500 font-medium">
-                      <li class="">
-                          <a href="/" class="hover:underline ">Inicio</a>
-                      </li>
-                      <li>
-                          <a href="/nosotros" class="hover:underline">Nosotros</a>
-                      </li>
-                      <li>
-                          <a href="/paises" class="hover:underline">Países</a>
-                      </li>
-                      <li>
-                          <a href="/comofunciona" class="hover:underline">Como Funciona</a>
-                      </li>
-                      <li>
-                          <a href="/contacto" class="hover:underline">Contacto</a>
-                      </li>
-                  </ul>
-              </div>
-              <div>
-                  <h2 class="mb-6 text-sm font-semibold uppercase">Legal</h2>
-                  <ul class="text-gray-500 font-medium">
-                      <li class="">
-                          <a href="#" class="hover:underline">Privacy Policy</a>
-                      </li>
-                      <li>
-                          <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-                      </li>
-                  </ul>
-              </div>
+            <div class="mb-6 md:mb-0">
+                <a 
+                    href="/" 
+                    class="-mt-16 flex items-center justify-center mb-4">
+                    <Logo
+                        class="absolute w-20 m-auto blur-md opacity-0 transition-opacity duration-300 hover:opacity-100"
+                    />
+                    <Logo class="h-auto w-20" />
+                </a>
+            </div>
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+                <div>
+                    <h2 class="mb-2 text-sm font-semibold uppercase">
+                        Web Map
+                    </h2>
+                    <ul class="text-gray-500 font-medium">
+                        <li class="">
+                            <a href="/" class="hover:underline ">
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/nosotros" class="hover:underline">
+                                Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/paises" class="hover:underline">
+                                Países
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/comofunciona" class="hover:underline">
+                                Como Funciona
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contacto" class="hover:underline">
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-2 text-sm font-semibold uppercase">
+                        Legal
+                    </h2>
+                    <ul class="text-gray-500 font-medium">
+                        <li>
+                            <a href="#" class="hover:underline">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:underline">
+                                Terms &amp; Conditions
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="/comofunciona#faq">
+                                Ir a Preguntas Frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="/enviarDinero">
+                                ¿Como Enviar Dinero?
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-2 text-sm font-semibold uppercase">
+                        Contactanos
+                    </h2>
+                    <ul class="text-gray-500 font-medium">
+                        <li >
+                            <a href="https://flowbite.com/">
+                                WhatsApp
+                            </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center gap-2 hover:underline" href="https://web.whatsapp.com/send?phone=584124998811" target="_blank">
+                                <WhatsApp class="w-4" />
+                                +58 412-488 6644
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <div>
                     <h2 class="mb-6 text-sm font-semibold uppercase text-center">
                         Síguenos
                     </h2>
                     <div class="flex mt-4 sm:justify-center sm:mt-0">
-                        <a href="#" class="text-gray-500 hover:text-gray-800 ">
+                        <a href="#" class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 ms-3">
                             <FaceBook />
                             <span class="sr-only">Facebook</span>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-gray-800 ms-5">
+                        <a href="#" class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 ms-3">
                             <X />                           
                             <span class="sr-only">X</span>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-gray-800 ms-5">
-                            <Youtube /> 
+                        <a href="#" class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 ms-3">
+                            <Youtube/> 
                             <span class="sr-only">YouTube</span>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-gray-800 ms-5">
+                        <a href="#" class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 ms-3">
                             <Instagram />
                             <span class="sr-only">Instagram</span>
                         </a>

@@ -1,40 +1,36 @@
 ---
 import Button from "./Button";
-import Logo from "./Logo.astro";
 ---
 
 <header id="header-nav" class="fixed top-0 w-full px-6 py-4 z-50">
     <div class="grid grid-cols-3 max-w-7xl mx-auto items-center justify-between">
         <a class="col-span-1" href="/">
-            <Logo
-                class="absolute w-10 m-auto blur-sm opacity-0 transition-opacity duration-300 hover:opacity-100"
-            />
-            <Logo class="w-10"/>
+            <img class="w-36 duration-500 hover:scale-105" src="/LogoOrisur.webp" alt="Logo Orisur"/>
         </a>
         <nav class="col-span-1 justify-self-center">
             <ul class="flex gap-5">
                 <li>
-                    <a class="hover:underline" href="#">
+                    <a class="text__glowing hover:underline" href="/">
                         Inicio
                     </a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="/nosotros">
+                    <a class="text__glowing hover:underline" href="/nosotros">
                         Nosotros
                     </a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="/paises">
+                    <a class="text__glowing hover:underline" href="/paises">
                         Países
                     </a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="/comofunciona">
+                    <a class="text__glowing hover:underline" href="/comofunciona">
                         Como Funciona
                     </a>
                 </li>
                 <li>
-                    <a class="hover:underline" href="contacto">
+                    <a class="text__glowing hover:underline" href="contacto">
                         Contacto
                     </a>
                 </li>
@@ -43,8 +39,23 @@ import Logo from "./Logo.astro";
         <Button
             className="md:py-2 md:ml-auto md:text-base lg:text-base"
             url="#"
+            target="_self"
         >
             Acceso
         </Button>
     </div>
 </header>
+
+<!-- <style>
+    a {
+        transition:
+            text-shadow 0.5s ease-out,
+            box-shadow 0.3s ease-out;
+    }
+
+    a:hover {
+        
+        text-shadow:
+            10px 10px 50px #fff;
+    }
+</style> -->

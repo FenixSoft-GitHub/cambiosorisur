@@ -8,68 +8,35 @@ import Phone from "./icons/Phone.astro";
 import WhatsApp from "./icons/WhatsApp.astro";
 ---
 
-<section class="mx-auto w-full max-w-[1400px] p-6 sm:p-20">
+<section class="mx-auto w-full p-6 sm:p-20 justify-center items-center">
+    
     <h1
-        class="mx-auto mb-10 text-balance text-center text-xl font-semibold uppercase tracking-wide md:text-4xl"
+        class="mb-10 text-balance text-center text-xl font-semibold uppercase tracking-wide md:text-4xl"
     >
         ¿Necesitas contactarnos?
     </h1>
-    <p class="mx-auto mb-10 text-balance text-center text-sm tracking-wide md:text-xl">
+
+    <p class="mb-16 text-balance text-center text-sm tracking-wide md:text-xl">
         Póngase en contacto con el servicio al cliente de <strong>Cambios OriSur</strong>
     </p>
-
-    <div class="lg:flex-row mx-auto w-full flex flex-col gap-14">
-        <div class="flex flex-col lg:w-1/2">
-            <Card 
-                title="Teléfono", 
-                body="+58 412-499 88 11"
-            >
-                <div 
-                    slot="icons" 
-                >
-                <a href="https://web.whatsapp.com/send?phone=584124998811" target="_blank">
-                    <WhatsApp />
-                </a>
-                </div>
-            </Card>
-
-            <Card 
-                title="Horarios", 
-                body="Lun - Vie: 8 am - 6 pm"
-                subbody="Sáb y Dom: Cerrado"
-            >
-                <div 
-                    slot="icons" 
-                >
-                    <Clock />
-                </div>
-            </Card>
-
-            <Card 
-                title="Email",
-                body="alfaortiz.sis@gmail.com"
-            >
-                <div 
-                    slot="icons" 
-                >
-                    <Email />
-                </div>
-            </Card>
-
-            <Card 
-                title="Dirección", 
-                body="Urb. Las Cayenas"
-                subbody="Maturín - Monagas - Venezuela"
-            >
-                <div 
-                    slot="icons" 
-                >
-                    <Address />
-                </div>
-            </Card>
-        </div>
-        <div class="mb-8">
-            <FormEmail />
-        </div>
+    
+    <div class="flex justify-center">
+        <a href="/contacto" class="py-3 px-32 text-xl font-medium text-white border border-solid border-white rounded-full sm:w-fit hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-primary-300">
+            Contactanos
+        </a>
     </div>
 </section>
+
+<style>
+    a {
+        transition:
+            text-shadow 0.5s ease-out,
+            box-shadow 0.3s ease-out;
+    }
+
+    a:hover {
+        box-shadow: 0 0 15px #fff;
+        text-shadow:
+            1px 1px 20px #fff;
+    }
+</style>

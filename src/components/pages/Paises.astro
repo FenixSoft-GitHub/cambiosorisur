@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import HeroContainer from '../HeroContainer.astro';
+import HeroContainer from '@/components/HeroContainer.astro';
+import PaisItem from '@/components/PaisItem.astro';
 ---
 
 <Layout title="Países" description="Países">
@@ -21,103 +22,16 @@ import HeroContainer from '../HeroContainer.astro';
 
 
         <section class="grid lg:justify-items-center place-items-center lg:grid-cols-2 grid-cols-1 gap-4 max-w-5xl mx-auto mt-20 mb-20">
-            <div id="trophies" class="flex flex-col  lg:gap-5 items-center w-48 mb-8">
-                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/venezuela.webp" alt="Bandera de Venezuela">
-                <h1 class="texto text-2xl md:text-3xl lg:text-3xl font-semibold tracking-tight hover:tracking-wide">Venezuela</h1>
-            </div>
-            <div id="theater" class="flex flex-col  lg:gap-5 items-center w-48 mb-8">
-                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/ecuador.webp" alt="Bandera de Ecuador">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Ecuador</h1>
-            </div>
-            <div id="trophies" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
-                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/argentina.webp" alt="Bandera de Argentina">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Argentina</h1>
-            </div>
-            <div id="theater" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
-                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/chile.webp" alt="Bandera de Chile">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Chile</h1>
-            </div>
-            <div id="trophies" class="flex flex-col lg:gap-5 items-center w-48 h-full mb-8">
-                <img  class="object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/colombia.webp" alt="Bandera de Colombia">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Colombia</h1>
-            </div>
-            <div id="theater" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
-                <img class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/peru.webp" alt="Bandera de Perú">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Perú</h1>
-            </div>
-            <div id="trophies" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
-                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/brazil.webp" alt="Bandera de Brasil">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">Brasil</h1>
-            </div>
-            <div id="theater" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
-                <img class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/mexico.webp" alt="Bandera de México">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">México</h1>
-            </div>
-            <div id="trophies" class="flex flex-col lg:gap-5 items-center w-48 mb-8">
-                <img  class="rounded-xl object-cover w-full h-auto duration-1000 ease-in-out hover:scale-110" src="/mapas/america.webp" alt="Bandera de Estados Unidos">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">USA</h1>
-            </div>
-            <div id="theater" class="flex flex-col lg:gap-5 items-center w-48 h-48 mb-8">
-                <img class="object-cover w-full h-full duration-1000 ease-in-out hover:scale-110" src="/mapas/dominican.webp" alt="Bandera de República Dominicana">
-                <h1 class="texto text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight hover:tracking-wide">República Dominicana</h1>
-            </div>
+            <PaisItem id="trophies" href="Venezuela",  imgSrc="/mapas/venezuela.webp", imgAlt="Bandera de Venezuela", pais="Venezuela"/>
+            <PaisItem id="theater" href="/enviarDinero" imgSrc="/mapas/ecuador.webp" imgAlt="Bandera de Ecuador" pais="Ecuador"/>
+            <PaisItem id="trophies" href="/enviarDinero" imgSrc="/mapas/argentina.webp" imgAlt="Bandera de Argentina" pais="Argentina"/>
+            <PaisItem id="theater" href="/enviarDinero" imgSrc="/mapas/chile.webp" imgAlt="Bandera de Chile" pais="Chile"/>
+            <PaisItem id="trophies" href="/enviarDinero"  imgSrc="/mapas/colombia.webp" imgAlt="Bandera de Colombia" pais="Colombia"/>
+            <PaisItem id="theater" href="/enviarDinero" imgSrc="/mapas/peru.webp" imgAlt="Bandera de Perú" pais="Perú"/>
+            <PaisItem id="trophies" href="/enviarDinero" imgSrc="/mapas/brazil.webp" imgAlt="Bandera de Brasil" pais="Brasil"/>
+            <PaisItem id="theater" href="/enviarDinero" imgSrc="/mapas/mexico.webp" imgAlt="Bandera de México" pais="México"/>
+            <PaisItem id="trophies" href="/enviarDinero" imgSrc="/mapas/america.webp" imgAlt="Bandera de Estados Unidos" pais="USA"/>
+            <PaisItem id="theater" href="/enviarDinero" imgSrc="/mapas/dominican.webp" imgAlt="Bandera de República Dominicana" pais="República Dominicana"/>
         </section>
     </main>
 </Layout>
-
-<style>
-    .texto {
-        text-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
-    }
-
-    #theater,
-    #trophies-text h1,
-    #trophies-text p {
-        animation: cover-animation linear both;
-        animation-timeline: view();
-    }
-    #theater-text h1,
-    #theater-text p,
-    #trophies {
-        animation: entry-animation linear both;
-        animation-timeline: view();
-    }
-    #theater {
-        animation-range: entry 10% cover 40%;
-    }
-    #theater-text h1 {
-        animation-range: entry 10% cover 30%;
-    }
-    #theater-text p {
-        animation-range: entry 10% cover 20%;
-    }
-    #trophies {
-        animation-range: entry 30% cover 50%;
-    }
-    #trophies-text h1 {
-        animation-range: entry 30% cover 40%;
-    }
-    #trophies-text p {
-        animation-range: entry 20% cover 30%;
-    }
-    @keyframes entry-animation {
-        0% {
-        opacity: 0;
-        translate: var(--entry-animation) 0;
-        }
-        100% {
-        opacity: 1;
-        translate: 0 0;
-        }
-    }
-    @keyframes cover-animation {
-        0% {
-        opacity: 0;
-        translate: var(--cover-animation) 0;
-        }
-        100% {
-        opacity: 1;
-        translate: 0 0;
-        }
-    }
-</style>

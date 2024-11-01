@@ -18,70 +18,24 @@ import WhatsApp from "@/components/icons/WhatsApp.astro";
     </HeroContainer>
 
     <section class="mx-auto w-full max-w-[1400px] p-6 sm:p-20 mt-36">
+        <h1
+            class="mx-auto mb-10 text-balance text-center text-xl font-semibold uppercase tracking-wide md:text-4xl"
+        >
+            ¿Necesitas asistencia?
+        </h1>
         
-            <h1
-                class="mx-auto mb-10 text-balance text-center text-xl font-semibold uppercase tracking-wide md:text-4xl"
-            >
-                ¿Necesitas asistencia?
-            </h1>
-            <p class="max-w-[800px] mx-auto mb-20 text-balance text-center text-sm tracking-wide md:text-xl">
-                Contacta con nuestro amable equipo de atención al cliente. Estamos aquí para resolver tus dudas y ofrecerte el mejor servicio. El equipo de <strong>Cambios OriSur</strong> estará encantado de atenderte.
-            </p>
+        <p class="max-w-[800px] mx-auto mb-20 text-balance text-center text-sm tracking-wide md:text-xl">
+            Contacta con nuestro amable equipo de atención al cliente. Estamos aquí para resolver tus dudas y ofrecerte el mejor servicio. El equipo de <strong>Cambios OriSur</strong> estará encantado de atenderte.
+        </p>
         
-
         <div class="lg:flex-row mx-auto w-full flex flex-col gap-14">
             <div class="flex flex-col lg:w-1/2">
-                <Card 
-                    title="Teléfono", 
-                    body="+58 412-499 88 11"
-                >
-                    <div 
-                        slot="icons" 
-                    >
-                    <a href="https://web.whatsapp.com/send?phone=584124998811" target="_blank">
-                        <WhatsApp />
-                    </a>
-                    </div>
-                </Card>
-
-                <Card 
-                    title="Horarios", 
-                    body="Lun - Vie: 8 am - 6 pm"
-                    subbody="Sáb y Dom: Cerrado"
-                >
-                    <div 
-                        slot="icons" 
-                    >
-                        <Clock />
-                    </div>
-                </Card>
-
-                <Card 
-                    title="Email",
-                    body="alfaortiz.sis@gmail.com"
-                >
-                    <div 
-                        slot="icons" 
-                    >
-                        <Email />
-                    </div>
-                </Card>
-
-                <Card 
-                    title="Dirección", 
-                    body="Urb. Las Cayenas"
-                    subbody="Maturín - Monagas - Venezuela"
-                >
-                    <div 
-                        slot="icons" 
-                    >
-                        <Address />
-                    </div>
-                </Card>
+                <Card />
             </div>
             <div class="mb-8">
                 <FormEmail />
             </div>
         </div>
+        
     </section>
 </Layout>

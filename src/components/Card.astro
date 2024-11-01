@@ -1,36 +1,57 @@
 ---
-interface Props {
-	title: string;
-	body: string;
-	subbody?: string;
-}
-
-const { subbody, title, body } = Astro.props;
+import CardItem from "./CardItem.astro";
+import Address from "./icons/Address.astro";
+import Clock from "./icons/Clock.astro";
+import Email from "./icons/Email.astro";
+import Phone from "./icons/Phone.astro";
+import WhatsApp from "./icons/WhatsApp.astro";
 ---
+<div>
+    <CardItem 
+        title="Teléfono", 
+        body="+58 412-499 88 11"
+    >
+        <div 
+            slot="icons" 
+        >
+            <a href="https://web.whatsapp.com/send?phone=584124998811" target="_blank">
+                <WhatsApp />
+            </a>
+        </div>
+    </CardItem>
 
-<article 
-	class={`
-		rounded-xl
-		backdrop-blur-md
-		border border-white/30
-		shadow-inner shadow-white/50
-		overflow-hidden
-		flex flex-row
-		mb-4
-		items-center
-		h-36 
-		md:w-full
-		lg:mb-14
-	`}
->
-	
-	<div class="mx-6 text-white/40 duration-300 ease-in-out hover:scale-125 hover:text-white/80">
-		<slot name="icons" />
-	</div>
+    <CardItem 
+        title="Horarios", 
+        body="Lun - Vie: 8 am - 6 pm"
+        subbody="Sáb y Dom: Cerrado"
+    >
+        <div 
+            slot="icons" 
+        >
+            <Clock />
+        </div>
+    </CardItem>
 
-	<div class="relative select-none flex flex-col gap-1 p-2 text-lg z-20 justify-center">
-		<h2 class="text-2xl text-balance text-white/80 mb-6">{title} <span>&rarr;</span></h2>
-		<span class="text-md text-sky-200/80 -mt-4 mb-4">{body}</span>
-		<span class="text-md text-sky-200/80 -mt-4 mb-4">{subbody}</span>
-	</div>
-</article>
+    <CardItem 
+        title="Email",
+        body="alfaortiz.sis@gmail.com"
+    >
+        <div 
+            slot="icons" 
+        >
+            <Email />
+        </div>
+    </CardItem>
+
+    <CardItem 
+        title="Dirección", 
+        body="Urb. Las Cayenas"
+        subbody="Maturín - Monagas - Venezuela"
+    >
+        <div 
+            slot="icons" 
+        >
+            <Address />
+        </div>
+    </CardItem>
+</div>

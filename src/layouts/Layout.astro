@@ -69,6 +69,7 @@ const { title, description } = Astro.props;
 	html {
 		font-family: 'Onest Variable', 'Tomaso', system-ui, sans-serif;
 		background: #13151a;
+		scroll-behavior: auto;
 	}
 	
 	p {
@@ -83,6 +84,15 @@ const { title, description } = Astro.props;
 	p strong {
 		color: white;
 		font-weight: 700;
+	}
+
+	.text__glowing {
+		transition: text-shadow 0.3s ease;
+	}
+
+	.text__glowing:hover {
+		text-shadow:
+			1px 1px 20px #fff;
 	}
 
 	#header-nav {
