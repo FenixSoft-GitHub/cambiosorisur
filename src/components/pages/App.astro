@@ -4,11 +4,15 @@ import Intro from '@/components/Intro.astro';
 import PreFooter from '@/components/PreFooter.astro';
 import Video from '@/components/Video.astro';
 import Layout from '@/layouts/Layout.astro';
+import { getI18N } from "@/i18n"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <Layout 
-	title="Cambios OriSur" 
-	description="Descubre la mejor plataforma para enviar tus remesas desde distintas partes de Latinoamerica, a las mejores tasas del mercado"
+	 title=`${i18n.SEO_TITLE_1}&nbsp;${new Date().getFullYear()}&nbsp;${i18n.SEO_TITLE_2}`  
+	 description={i18n.SEO_DESCRIPTION}
 >
 	<Video />
 	<main>

@@ -5,6 +5,19 @@ import Instagram from "./icons/Instagram.astro";
 import X from "./icons/X.astro";
 import Youtube from "./icons/Youtube.astro";
 import Logo from "./Logo.astro";
+import Link from "@/components/Link.astro"
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils"
+
+
+import { getI18N } from "@/i18n/"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 ---
 
 <footer class="bg-black/40">
@@ -20,69 +33,139 @@ import Logo from "./Logo.astro";
                     <Logo class="h-auto w-20" />
                 </a>
             </div>
+
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
                 <div>
                     <h2 class="mb-2 text-sm font-semibold uppercase">
-                        Web Map
+                        {i18n.FOOTER.WEB_MAP.TITLE}
                     </h2>
                     <ul class="text-gray-500 font-medium">
                         <li class="">
-                            <a href="/" class="hover:underline ">
+                            <Link
+                                href={translatePath('/')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.inicio')}
+                            </Link>
+
+                            <!-- <a href="/" class="hover:underline ">
                                 Inicio
-                            </a>
+                            </a> -->
                         </li>
                         <li>
-                            <a href="/nosotros" class="hover:underline">
+                             <Link
+                                href={translatePath('/nosotros')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.nosotros')}
+                            </Link>
+                            <!-- <a href="/nosotros" class="hover:underline">
                                 Nosotros
-                            </a>
+                            </a> -->
                         </li>
                         <li>
-                            <a href="/paises" class="hover:underline">
+                            <Link
+                                href={translatePath('/paises')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.paises')}
+                            </Link>
+                            <!-- <a href="/paises" class="hover:underline">
                                 Países
-                            </a>
+                            </a> -->
                         </li>
                         <li>
-                            <a href="/comofunciona" class="hover:underline">
+                            <Link
+                                href={translatePath('/comofunciona')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.comofunciona')}
+                            </Link>
+                            <!-- <a href="/comofunciona" class="hover:underline">
                                 Como Funciona
-                            </a>
+                            </a> -->
                         </li>
                         <li>
-                            <a href="/contacto" class="hover:underline">
+                            <Link
+                                href={translatePath('/contacto')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.contacto')}
+                            </Link>
+                            <!-- <a href="/contacto" class="hover:underline">
                                 Contacto
-                            </a>
+                            </a> -->
                         </li>
                     </ul>
                 </div>
+
                 <div>
                     <h2 class="mb-2 text-sm font-semibold uppercase">
-                        Legal
+                        {i18n.FOOTER.LEGAL.TITLE}
+                        <!-- Legal -->
                     </h2>
                     <ul class="text-gray-500 font-medium">
                         <li>
-                            <a href="#" class="hover:underline">
+                            <Link
+                                href={translatePath('/')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.legal')}
+                            </Link>
+
+                            <!-- <a href="#" class="hover:underline">
                                 Privacy Policy
-                            </a>
+                            </a> -->
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">
+                            <Link
+                                href={translatePath('/')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.privacidad')}
+                            </Link>
+                            <!-- <a href="#" class="hover:underline">
                                 Terms &amp; Conditions
-                            </a>
+                            </a> -->
                         </li>
                         <li>
-                            <a class="hover:underline" href="/comofunciona#faq">
+                            <Link
+                                href={translatePath('/')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.cookies')}
+                            </Link>
+                            <!-- <a href="#" class="hover:underline">
+                                Terms &amp; Conditions
+                            </a> -->
+                        </li>
+                        <li>
+                            <Link
+                                href={translatePath('/comofunciona#faq')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.preguntas')}
+                            </Link>
+                            <!-- <a class="hover:underline" href="/comofunciona#faq">
                                 Ir a Preguntas Frecuentes
-                            </a>
+                            </a> -->
                         </li>
                         <li>
-                            <a class="hover:underline" href="/enviarDinero">
+                            <Link
+                                href={translatePath('/enviarDinero')}
+                                class="hover:underline hover:text-primary duration-300"
+                            >
+                                {t('nav.enviar')}
+                            </Link>
+                            <!-- <a class="hover:underline" href="/enviarDinero">
                                 ¿Como Enviar Dinero?
-                            </a>
+                            </a> -->
                         </li>
                     </ul>
                 </div>
                 <div>
                     <h2 class="mb-2 text-sm font-semibold uppercase">
-                        Contactanos
+                        {i18n.FOOTER.CONTACTUS}
                     </h2>
                     <ul class="text-gray-500 font-medium">
                         <li >
@@ -100,7 +183,7 @@ import Logo from "./Logo.astro";
                 </div>
                 <div>
                     <h2 class="mb-6 text-sm font-semibold uppercase text-center">
-                        Síguenos
+                        {i18n.FOOTER.FOLLOWUS}
                     </h2>
                     <div class="flex mt-4 sm:justify-center sm:mt-0">
                         <a href="#" class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 ms-3">
@@ -130,9 +213,9 @@ import Logo from "./Logo.astro";
             >
                 &copy; &nbsp;{new Date().getFullYear()}&nbsp;
                 <a href="#" class="hover:underline">
-                    Cambios OriSur™
+                    Cambios OriSur™.
                 </a>
-                . All Rights Reserved.
+                {i18n.FOOTER.DISCLAIMER}
             </span>
         </div>
     </div>

@@ -8,12 +8,16 @@ import Clock from "@/components/icons/Clock.astro";
 import Email from "@/components/icons/Email.astro";
 import Phone from "@/components/icons/Phone.astro";
 import WhatsApp from "@/components/icons/WhatsApp.astro";
+import { getI18N } from "@/i18n/"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <Layout title="Contacto" description="Contacto">
     <HeroContainer img='/Contacto.webp'>
-        <span class="shadown text-6xl font-bold tracking-widest text-wrap font-tomaso">
-            Contáctanos
+        <span class="shadown text-4xl lg:text-6xl font-bold tracking-widest text-wrap font-tomaso">
+            {i18n.CONTACTUS.TITLE}
         </span>
     </HeroContainer>
 
@@ -21,12 +25,10 @@ import WhatsApp from "@/components/icons/WhatsApp.astro";
         <h1
             class="mx-auto mb-10 text-balance text-center text-xl font-semibold uppercase tracking-wide md:text-4xl"
         >
-            ¿Necesitas asistencia?
+            {i18n.CONTACTUS.TITLE_1}
         </h1>
         
-        <p class="max-w-[800px] mx-auto mb-20 text-balance text-center text-sm tracking-wide md:text-xl">
-            Contacta con nuestro amable equipo de atención al cliente. Estamos aquí para resolver tus dudas y ofrecerte el mejor servicio. El equipo de <strong>Cambios OriSur</strong> estará encantado de atenderte.
-        </p>
+        <p set:html={i18n.CONTACTUS.CONTENT_1} class="max-w-[800px] mx-auto mb-20 text-balance text-center text-sm tracking-wide md:text-xl" />
         
         <div class="lg:flex-row mx-auto w-full flex flex-col gap-14">
             <div class="flex flex-col lg:w-1/2">

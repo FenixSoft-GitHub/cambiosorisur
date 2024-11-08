@@ -1,17 +1,21 @@
 ---
 import BentoItem from "./BentoItem.astro";
+import { getI18N } from "@/i18n/"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <section 
     class={`
         w-full max-w-[1400px] 
         grid lg:grid-cols-10 auto-rows-[30rem] gap-4 
-        mx-auto p-6 md:p-12 lg:p-20
+        mx-auto p-6 md:p-8 lg:p-12
     `}
 >
     <BentoItem 
         class="col-span-10 lg:col-span-4" 
-        title="¿Cómo enviar dinero?"
+        title={i18n.BENTO_TITLE_1}
     >
         <div 
             slot="image" 
@@ -23,65 +27,59 @@ import BentoItem from "./BentoItem.astro";
         <p 
             slot="content" 
             class="max-w-xl text-base md:text-lg"
-            set:html="Ponte en contacto con nosotros, indica la moneda de origen, el monto a enviar, la entidad que recive y la moneda destino. Así de simple es enviar el dinero a tu ser querido."
+            set:html={i18n.BENTO_CONTENT_1}
         />
     </BentoItem>     
     
     <BentoItem 
         class="col-span-10 lg:col-span-6" 
-        title="Nuestra Prioridad"
-        subtitle="Te acerca a los que más quieres" 
+        title={i18n.BENTO_TITLE_2}
+        subtitle={i18n.BENTO_SUBTITLE_2}
     >
         <div 
             slot="image"
-            class="background transition-scale absolute bottom-0 left-0 top-0
-                -z-10 h-full w-full 
-                bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+            class="background transition-scale absolute bottom-0 left-0 top-0 -z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
             data-src="/Family.webp"
         >
         </div>
         <p 
             slot="content" 
             class="max-w-xl text-base md:text-lg"
-            set:html="Estamos creciendo para estar más cerca de ti. Nuestra red de servicios se expande constantemente para llegar a más personas en toda Latinoamérica. Brindándote acceso a un mayor número de opciones de envío. Con una amplia variedad de monedas y tipos de cambio, puedes elegir la que mejor se adapte a tus necesidades y enviar dinero de manera rápida, segura y conveniente."
+            set:html={i18n.BENTO_CONTENT_2}
         />
     </BentoItem>
     
     <BentoItem 
         class="col-span-10 lg:col-span-6" 
-        title="Nuestro personal calificado"
+        title={i18n.BENTO_TITLE_3}
     >
         <div 
             slot="image"
-            class="background transition-scale absolute bottom-0 left-0 top-0
-                    -z-10 h-full w-full 
-                    bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+            class="background transition-scale absolute bottom-0 left-0 top-0 -z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
             data-src="/Team.jpg"
         >
         </div>
         <p 
             slot="content"
             class="max-w-xl text-base md:text-lg"
-            set:html="Nuestro equipo de profesionales te brinda un servicio de primera calidad. Con años de experiencia en el sector, nuestros agentes están altamente capacitados para atender tus necesidades de manera rápida y eficiente. Nos enorgullecemos de ofrecer una atención personalizada y resolver cualquier duda que puedas tener. Tu satisfacción es nuestra prioridad."
+            set:html={i18n.BENTO_CONTENT_3}
         />
     </BentoItem>
     
     <BentoItem 
         class="col-span-10 lg:col-span-4" 
-        title="¡Sistema de pago!" 
+        title={i18n.BENTO_TITLE_4}
     >
         <div 
             slot="image"
-            class="background transition-scale absolute bottom-0 left-0 top-0
-                -z-10 h-full w-full 
-                bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+            class="background transition-scale absolute bottom-0 left-0 top-0 -z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
             data-src="/transferencia-bancaria.jpg"
         >
         </div>
         <p
             slot="content"
             class="max-w-xl text-base md:text-lg"
-            set:html="Nuestro sistema de pago seguro y confiable te permite enviar dinero de forma rápida y sencilla, utilizando una amplia variedad de métodos. Con nuestro equipo de soporte siempre a tu disposición, podrás realizar tus transacciones con total tranquilidad y confianza."
+            set:html={i18n.BENTO_CONTENT_4}
         />
     </BentoItem>
     

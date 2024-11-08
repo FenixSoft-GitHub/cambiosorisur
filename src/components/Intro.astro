@@ -1,21 +1,23 @@
 ---
 import Logo from "./Logo.astro";
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
-<section class="text-xl text-left px-20 max-w-[70ch] text-pretty mx-auto my-24">
-    <div class="flex items-center justify-center mb-4">
+<section class="text-xl text-left max-w-[70ch] text-pretty mx-auto">
+    <div class="flex items-center justify-center mb-4 mt-12">
         <Logo
             class="absolute w-16 m-auto blur-md opacity-0 transition- opacity duration-300 hover:opacity-100"
         />
         <Logo class="w-16 text-white m-auto" />
     </div>
-    <h1 class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide uppercase">
-        Cambios OriSur
+    <h1 class="text-4xl font-semibold text-center text-wrap mx-auto mb-4 tracking-wide uppercase">
+        {i18n.INTRO_TITLE}
     </h1>
-    <h2 class="text-2xl font-semibold text-center text-wrap mx-auto mb-6 tracking-wide">
-        Tu tranquilidad es nuestra prioridad
+    <h2 class="text-2xl font-semibold text-center text-wrap mx-auto mb-4 tracking-wide">
+        {i18n.INTRO_SUBTITLE}
     </h2>
-    <p>
-        ¿Cansado de las altas comisiones y los trámites engorrosos al enviar dinero al extranjero? En <strong>Cambios OriSur</strong>, te ofrecemos un servicio de envío de remesas rápido, seguro y con las mejores tasas del mercado. Con nuestra amplia red de agentes y nuestra plataforma en línea fácil de usar, podrás enviar dinero a cualquier parte del mundo con tan solo unos clics. ¡Comienza a ahorrar tiempo y dinero hoy mismo!.
-    </p>
+    <p set:html={i18n.INTRO_DESCRIPTION} class="max-w-[800px] mx-auto text-balance text-center text-sm tracking-wide md:text-xl"/>
 </section>

@@ -3,12 +3,16 @@ import Layout from '@/layouts/Layout.astro';
 import HeroContainer from '../HeroContainer.astro';
 import Logo from '../Logo.astro';
 import PreguntasItem from '../PreguntasItem.astro';
+import { getI18N } from "@/i18n/"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <Layout title="¿Como Funciona?" description="¿Como Funciona?">
     <HeroContainer img='/ComoFunciona2.jpeg'>
-        <span class="shadown text-6xl font-bold tracking-widest font-tomaso">
-            ¿Cómo Funciona?
+        <span class="shadown text-4xl lg:text-6xl font-bold tracking-widest font-tomaso">
+            {i18n.HOWITWORKS.TITLE}
         </span>
     </HeroContainer>
 
@@ -18,9 +22,9 @@ import PreguntasItem from '../PreguntasItem.astro';
             <div id="theater-text" class="md:w-1/2 space-y-4">
                 <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
                 >
-                    Envía dinero fácil y rápido.
+                    {i18n.HOWITWORKS.TITLE_1}
                 </h1>
-                <p>Reserva tu cupo ahora mismo por WhatsApp. Especifica el nombre completo del beneficiario y el monto en la moneda deseada.</p>
+                <p set:html={i18n.HOWITWORKS.CONTENT_1}/>
             </div>
             <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
                 <img
@@ -53,10 +57,9 @@ import PreguntasItem from '../PreguntasItem.astro';
             <div id="trophies-text" class="md:w-1/2 space-y-4">
                 <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
                 >
-                    Realiza el pago en la moneda de tu país.
+                    {i18n.HOWITWORKS.TITLE_2}
                 </h1>
-                <p set:html="Efectua una transferencia bancaria o un depósito en efectivo en tu moneda local." />
-                
+                <p set:html={i18n.HOWITWORKS.CONTENT_2}/>
             </div>
         </section>
 
@@ -64,9 +67,9 @@ import PreguntasItem from '../PreguntasItem.astro';
             <div id="theater-text" class="md:w-1/2 space-y-4">
                 <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
                 >
-                    Nosotros nos encargamos del resto.
+                    {i18n.HOWITWORKS.TITLE_3}
                 </h1>
-                <p>Una vez confirmado tu pago, procederemos a transferir los fondos de inmediato a la persona indicada.</p>
+                <p set:html={i18n.HOWITWORKS.CONTENT_3} />
             </div>
             <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
                 <img
@@ -99,9 +102,9 @@ import PreguntasItem from '../PreguntasItem.astro';
             <div id="trophies-text" class="md:w-1/2 space-y-4">
                 <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
                 >
-                    Confirmación de Transacción
+                    {i18n.HOWITWORKS.TITLE_4}
                 </h1>
-                <p set:html="Te proporcionaremos una confirmación detallada de la transacción, incluyendo un comprobante que podrás compartir con el beneficiario como evidencia de la entrega." />
+                <p set:html={i18n.HOWITWORKS.CONTENT_4} />
             </div>
         </section>
 
@@ -112,36 +115,36 @@ import PreguntasItem from '../PreguntasItem.astro';
                 />
                 <Logo class="w-16 text-white m-auto" />
             </div>
-            <h1 class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide uppercase">
-                Preguntas frecuentes
+            <h1 class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide">
+                {i18n.HOWITWORKS.FAQ.TITLE}
             </h1>
             <PreguntasItem
-                questions='¿Cómo puedo enviar dinero a otra persona?'
-                answers='Con nuestro servicio de envíos de dinero, lo puedes hacer simplemente contactándonos a nuestro WhatsApp, allí te indicaremos los datos e información necesaria para enviar con seguridad.'
+                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_1}
+                answers={i18n.HOWITWORKS.FAQ.ANSWER_1}
             />
             <PreguntasItem
-                questions='¿Cómo se envia dinero por celular?'
-                answers='Con Cambios OriSur, solamente con contactarnos vía WhatsApp, podrás iniciar el proceso de envío. Visita: https://www.cambiosorisur.com donde encontraras nuestra información de contacto.'
+                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_2}
+                answers={i18n.HOWITWORKS.FAQ.ANSWER_2}
             />
             <PreguntasItem
-                questions='¿Qué formas de pago se aceptan para enviar dinero a Venezuela u otro país?'
-                answers='Recibimos dinero a través de depósitos en efectivo, transferencias locales, Binance y plataformas de pago electrónico.'
+                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_3}
+                answers={i18n.HOWITWORKS.FAQ.ANSWER_3}
             />
             <PreguntasItem
-                questions='Al ordenar una remesa, ¿Cuánto tiempo demorará la transferencia a la cuenta de destino?'
-                answers='El tiempo de transferencia final a la cuenta de destino depende del banco de su beneficiario. Si Cambios OriSur tiene cuentas bancarias en el mismo banco de destino, podemos garantizarle que transfiera y reciba el dinero el mismo día. De lo contrario, la transferencia entrará en vigencia el siguiente día hábil bancario después de la 1:00 p.m.'
+                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_4}
+                answers={i18n.HOWITWORKS.FAQ.ANSWER_4}
             />
             <PreguntasItem
-                questions='¿Cuál es el tipo de cambio aplicado para mis transferencias?'
-                answers='Ofrecemos tipos de cambio con un excelente retorno de los fondos que transfiere a su familia, amigos o negocios. Para conocer el tipo de cambio del país de donde envía, escribanos al WhatsApp y haga su consulta, con gusto le atenderemos.'
+                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_5}
+                answers={i18n.HOWITWORKS.FAQ.ANSWER_5}
             />
             <PreguntasItem
-                questions='¿Cómo funciona el envío de remesas, giros, o transferencias de dinero?'
-                answers='Habiendo acordado con nosotros el tipo de cambio (por WhatsApp o Telegram), dependiendo del país de origen, se acordará la cantidad que desea enviar.'
+                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_6}
+                answers={i18n.HOWITWORKS.FAQ.ANSWER_6}
             />
             <PreguntasItem
-                questions='¿Qué sucede después de completar el pago?'
-                answers='Procederemos a verificar que hemos recibido los fondos de acuerdo con el método de pago que elegiste. Luego transferiremos los fondos a la cuenta de destino y finalmente, le notificaremos que el pago se realizó mediante un recibo o una captura de pantalla de la transacción.'
+                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_7}
+                answers={i18n.HOWITWORKS.FAQ.ANSWER_7}
             />
         </section>
     </main>

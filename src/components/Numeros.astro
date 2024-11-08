@@ -1,16 +1,20 @@
 ---
 import { CountUp } from "./CountUp.tsx";
+import { getI18N } from "@/i18n/"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <section class="max-w-6xl mx-auto py-20 px-20">
-    <h2 class="text-3xl lg:text-4xl text-center text-balance mb-10 lg:mb-20 font-semibold  font-lexend">Cambios OriSur en números</h2>
+    <h2 class="text-3xl lg:text-4xl text-center text-balance mb-10 lg:mb-20 font-semibold  font-lexend">{i18n.ABOUTUS.NUMBERS}</h2>
     <div class="grid grid-cols-1 gap-y-10 lg:grid-cols-3">
         <div class="flex flex-col justify-center items-center">
             <span class="number text-6xl font-bold tabular-nums tracking-tighter">
                 +<CountUp client:visible initial={0} final={10}/>M
             </span>
             <span class="uppercase opacity-70">
-                Transacciones Realizadas
+                {i18n.ABOUTUS.NUMBERS_TRANS}
             </span>
         </div>
         
@@ -20,7 +24,7 @@ import { CountUp } from "./CountUp.tsx";
             </span>
             
             <span class="uppercase opacity-70">
-                Paises Conectados
+                {i18n.ABOUTUS.NUMBERS_COUNTRY}
             </span>
         </div>
         
@@ -29,7 +33,7 @@ import { CountUp } from "./CountUp.tsx";
                 +<CountUp client:visible initial={0} final={8}/>
             </span>
             <span class="uppercase opacity-70">
-                Años de experiencia
+                {i18n.ABOUTUS.NUMBERS_YEAR}
             </span>
         </div>
     </div>

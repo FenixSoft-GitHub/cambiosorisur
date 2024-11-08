@@ -6,23 +6,30 @@ import Clock from "./icons/Clock.astro";
 import Email from "./icons/Email.astro";
 import Phone from "./icons/Phone.astro";
 import WhatsApp from "./icons/WhatsApp.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath, } from '../i18n/utils';
+
+import { getI18N } from "@/i18n"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <section class="mx-auto w-full p-6 sm:p-20 justify-center items-center">
-    
     <h1
         class="mb-10 text-balance text-center text-xl font-semibold uppercase tracking-wide md:text-4xl"
     >
-        ¿Necesitas contactarnos?
+        {i18n.PREFOOTER_TITLE}
     </h1>
 
-    <p class="mb-16 text-balance text-center text-sm tracking-wide md:text-xl">
-        Póngase en contacto con el servicio al cliente de <strong>Cambios OriSur</strong>
-    </p>
+    <p set:html={i18n.PREFOOTER_SUBTITLE} class="mb-16 text-balance text-center text-sm tracking-wide md:text-xl"/>
     
     <div class="flex justify-center">
-        <a href="/contacto" class="py-3 px-32 text-xl font-medium text-white border border-solid border-white rounded-full sm:w-fit hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-primary-300">
-            Contactanos
+        <a href={translatePath('/contacto/')} class="py-3 px-20 mb-12 text-xl font-medium text-white border border-solid border-white rounded-full sm:w-fit hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-primary-300">
+            {i18n.PREFOOTER_BUTTON}
         </a>
     </div>
 </section>

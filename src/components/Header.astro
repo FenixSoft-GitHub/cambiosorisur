@@ -1,14 +1,60 @@
 ---
-import Button from "./Button";
+import Button from "@/components/Button";
+import HeaderLink from "@/components/HeaderLink.astro"
+import MenuIcon from "@/components/icons/Menu.astro"
+import CloseIcon from "@/components/icons/Close.astro"
+import LanguageSelector from "@/components/LanguageSelector.astro"
+
+import { getI18N } from "@/i18n/index"
+import { getLangFromUrl, useTranslations, useTranslatedPath, } from '../i18n/utils';
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <header id="header-nav" class="fixed top-0 w-full px-6 py-4 z-50">
-    <div class="grid grid-cols-3 max-w-7xl mx-auto items-center justify-between">
-        <a class="col-span-1" href="/">
-            <img class="w-36 duration-500 hover:scale-105" src="/LogoOrisur.webp" alt="Logo Orisur"/>
-        </a>
-        <nav class="col-span-1 justify-self-center">
-            <ul class="flex gap-5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-16"
+    >
+        <HeaderLink
+            checkActive={false}
+            href={translatePath('/')}
+            class="relative z-10"
+            aria-label={i18n.HEADER.LOGO}
+        >
+            <img class="w-40 duration-500 hover:scale-110" src="/LogoOrisur.webp" alt="Logo Orisur"/>
+        </HeaderLink>
+
+        <!-- <a class="col-span-1" href="/">
+            <img class="w-40 duration-500 hover:scale-110" src="/LogoOrisur.webp" alt="Logo Orisur"/>
+        </a> -->
+
+        <nav class="fixed w-full h-dvh inset-0 bg-[#151a36]/90 md:text-base lg:text-xl flex flex-col items-center justify-center gap-8 -translate-y-full transition-transform duration-300 target:translate-y-0 md:static md:h-[initial] md:bg-[initial] md:flex-row md:translate-y-[initial]">
+            <HeaderLink class="text__glowing" href={translatePath('/')}
+            >
+                {t('nav.inicio')}
+            </HeaderLink>
+            <HeaderLink class="text__glowing" href={translatePath('/nosotros/')}
+            >
+                {t('nav.nosotros')}
+            </HeaderLink>
+            <HeaderLink class="text__glowing" href={translatePath('/paises/')}
+            >
+                {t('nav.paises')}
+            </HeaderLink>
+            <HeaderLink class="text__glowing" href={translatePath('/comofunciona/')}
+            >
+                {t('nav.comofunciona')}
+            </HeaderLink>
+            <HeaderLink class="text__glowing" href={translatePath('/contacto/')}
+            >
+                {t('nav.contacto')}
+            </HeaderLink>
+
+            <!-- <ul class="flex gap-5">
                 <li>
                     <a class="text__glowing hover:underline" href="/">
                         Inicio
@@ -34,28 +80,20 @@ import Button from "./Button";
                         Contacto
                     </a>
                 </li>
-            </ul>
+            </ul> -->
+            <LanguageSelector />
+            <Button
+                className="md:py-2 md:ml-auto md:text-base lg:text-base"
+                url="#"
+                target="_self"
+            >
+                {i18n.HEADER_BUTTON}
+            </Button>
+            <a href="#header-nav" class="md:hidden absolute top-6 right-6">
+                <CloseIcon />
+            </a>
         </nav>
-        <Button
-            className="md:py-2 md:ml-auto md:text-base lg:text-base"
-            url="#"
-            target="_self"
-        >
-            Acceso
-        </Button>
+        <a href="#header-menu" class="md:hidden"><MenuIcon /></a>
     </div>
 </header>
 
-<!-- <style>
-    a {
-        transition:
-            text-shadow 0.5s ease-out,
-            box-shadow 0.3s ease-out;
-    }
-
-    a:hover {
-        
-        text-shadow:
-            10px 10px 50px #fff;
-    }
-</style> -->

@@ -1,8 +1,12 @@
 ---
 import Logo from "./Logo.astro";
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
-<div class="relative h-dvh w-full max-w-[100vw] md:h-[80vh] xl:h-full">
+<section class="relative h-dvh w-full max-w-[100vw] md:h-[80vh] xl:h-full">
     <div
         class="absolute inset-0 h-full justify-center z-10 m-auto flex flex-col items-center w-full"
     >
@@ -27,20 +31,19 @@ import Logo from "./Logo.astro";
             <p
                 class="subtitle text-gray-800 font-normal text-xl lg:text-2xl text-center text-wrap uppercase px-4"
             >
-                Tu mejora alternativa para el envío de Remesas en Latiniamérica
+                {i18n.SEO_TITLE_2}
             </p>
         </section>
     </div>
-
     <img
-        class="cp-v  w-full h-screen object-fill object-top animate-fade-down animate-duration-[2s]" 
+        class="cp-v w-full h-screen object-fill object-top animate-fade-down animate-duration-[2s]" 
         src="/Playa.webp" alt="Playa tropical"
     >
     <img 
-        class="w-full h-screen absolute -bottom-48 blur-3xl -z-40"
+        class="w-full h-full absolute -bottom-48 blur-3xl -z-40"
         src="/Playa.webp" alt="Playa tropical"
     >
-</div>
+</section>
 
 <style>
     .subtitle {

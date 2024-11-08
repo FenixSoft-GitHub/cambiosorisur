@@ -4,12 +4,16 @@ import HeroContainer from '../HeroContainer.astro';
 import Logo from "@/components/Logo.astro";
 import BentoItem from "@/components/BentoItem.astro";
 import Numeros from "@/components/Numeros.astro";
+import { getI18N } from "@/i18n/"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <Layout title="Nosotros" description="Nosotros">
     <HeroContainer img='/NosotrosW.webp'>
-        <span class="shadown text-6xl font-bold tracking-widest text-wrap font-tomaso">
-            Nosotros
+        <span class="shadown text-4xl lg:text-6xl font-bold tracking-widest text-wrap font-tomaso">
+            {i18n.ABOUTUS.TITLE}
         </span>
     </HeroContainer>
 
@@ -21,22 +25,20 @@ import Numeros from "@/components/Numeros.astro";
         <Logo class="w-16 text-white m-auto" />
     </div>
         
-        <h1 class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide">
-            Nuestra Razón de ser
+        <h1 class="mx-auto mb-10 text-balance text-center text-xl font-semibold uppercase tracking-wide md:text-4xl">
+            {i18n.ABOUTUS.SUBTITLE}
         </h1>
         
-        <p>
-            Nuestro propósito es revolucionar la forma en que se envían las remesas. A través de la <strong>tecnología y la innovación</strong>, buscamos hacer que el envío de dinero sea más fácil, rápido y accesible para todos, permitiendo a nuestros clientes mantener un vínculo estrecho con sus seres queridos en el extranjero. Queremos que nuestros clientes tengan la libertad de enviar dinero cuando y donde quieran, sin importar la distancia. Creemos en el <strong>poder de las conexiones humanas</strong> y trabajamos incansablemente para fortalecerlas.
-        </p>
+        <p set:html={i18n.ABOUTUS.CONTENT} class="max-w-[800px] mx-auto mb-20 text-balance text-center text-sm tracking-wide md:text-xl"/>
     </section>
 
     <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8">
         <div id="theater-text" class="md:w-1/2 space-y-4">
             <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
             >
-                Misión
+                {i18n.ABOUTUS.MISSION}
             </h1>
-            <p>Revolucionar la forma en que se envían las remesas, utilizando la tecnología más avanzada para ofrecer un servicio seguro, transparente y personalizado.</p>
+            <p>{i18n.ABOUTUS.CONTENT_MISSION}</p>
         </div>
         <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
             <img
@@ -69,9 +71,9 @@ import Numeros from "@/components/Numeros.astro";
         <div id="trophies-text" class="md:w-1/2 space-y-4">
             <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
             >
-                Visión
+                {i18n.ABOUTUS.VISION}
             </h1>
-            <p set:html="Convertirnos en la empresa líder en innovación en el sector de las remesas, ofreciendo soluciones financieras digitales que se adapten a las necesidades cambiantes de nuestros clientes." />
+            <p set:html={i18n.ABOUTUS.CONTENT_VISION} />
             
         </div>
     </section>
@@ -79,12 +81,10 @@ import Numeros from "@/components/Numeros.astro";
     <section class="text-xl text-left px-20 max-w-[70ch] text-pretty mx-auto my-4 mt-10">
 
         <h1 class="text-3xl font-semibold text-center text-wrap mx-auto mb-5 tracking-wide">
-            Nuestros Valores
+            {i18n.ABOUTUS.VALUES.TITLE}
         </h1>
         
-        <p>
-            En <strong>Cambios OriSur </strong>, somos más que un simple servicio de envío de remesas. Somos una comunidad unida por valores sólidos que guían cada una de nuestras acciones.
-        </p>
+        <p set:html={i18n.ABOUTUS.VALUES.CONTENT_TITLE}/>
     </section>
 
     <section 
@@ -96,7 +96,7 @@ import Numeros from "@/components/Numeros.astro";
 
         <BentoItem 
             class="col-span-10 lg:col-span-4" 
-            title="Confianza"
+            title={i18n.ABOUTUS.VALUES.TRUST}
         >
             <div 
                 slot="image" 
@@ -108,13 +108,13 @@ import Numeros from "@/components/Numeros.astro";
             <p 
                 slot="content" 
                 class="max-w-xl text-base md:text-lg"
-                set:html="Construimos relaciones sólidas basadas en la confianza. Para nosotros, la seguridad y la transparencia son pilares fundamentales. Cada transacción es manejada con el más alto nivel de confidencialidad, asegurando que el dinero de nuestros clientes llegue a su destino de manera segura y oportuna."
+                set:html={i18n.ABOUTUS.VALUES.CONTENT_TRUST}
             />
         </BentoItem>
         
         <BentoItem 
             class="col-span-10 lg:col-span-6" 
-            title="Responsabilidad"
+            title={i18n.ABOUTUS.VALUES.RESPONSIBILITY}
         >
             <div 
                 slot="image"
@@ -127,13 +127,13 @@ import Numeros from "@/components/Numeros.astro";
             <p 
                 slot="content" 
                 class="max-w-xl text-base md:text-lg"
-                set:html="Asumimos la responsabilidad de cada transacción como si fuera propia. Somos conscientes del impacto que nuestras acciones tienen en la vida de nuestros clientes y sus familias, por lo que trabajamos con diligencia y profesionalismo para cumplir con nuestros compromisos."
+                set:html={i18n.ABOUTUS.VALUES.CONTENT_RESPONSIBILITY}
             />
         </BentoItem>
 
         <BentoItem 
             class="col-span-10 lg:col-span-5" 
-            title="Aprendizaje"
+            title={i18n.ABOUTUS.VALUES.LEARNING}
         >
             <div 
                 slot="image"
@@ -146,13 +146,13 @@ import Numeros from "@/components/Numeros.astro";
             <p 
                 slot="content" 
                 class="max-w-xl text-base md:text-lg"
-                set:html="El mundo cambia constantemente, y nosotros también. Fomentamos una cultura de aprendizaje continuo, buscando siempre nuevas formas de mejorar nuestros servicios y adaptarnos a las necesidades de nuestros clientes."
+                set:html={i18n.ABOUTUS.VALUES.CONTENT_LEARNING}
             />
         </BentoItem>
         
         <BentoItem 
             class="col-span-10 lg:col-span-5" 
-            title="Trabajo en Equipo"
+            title={i18n.ABOUTUS.VALUES.TEAMWORK}
         >
             <div 
                 slot="image" 
@@ -164,13 +164,13 @@ import Numeros from "@/components/Numeros.astro";
             <p 
                 slot="content" 
                 class="max-w-xl text-base md:text-lg"
-                set:html="Creemos en la fuerza de la colaboración. Nuestro equipo trabaja en conjunto para encontrar soluciones innovadoras y superar cualquier desafío. La comunicación abierta y el respeto mutuo son la base de nuestro éxito."
+                set:html={i18n.ABOUTUS.VALUES.CONTENT_TEAMWORK}
             />
         </BentoItem>
         
         <BentoItem 
             class="col-span-10 lg:col-span-4" 
-            title="Vocación de Servicio"
+            title={i18n.ABOUTUS.VALUES.VOCATION}
         >
             <div 
                 slot="image" 
@@ -182,13 +182,13 @@ import Numeros from "@/components/Numeros.astro";
             <p 
                 slot="content" 
                 class="max-w-xl text-base md:text-lg"
-                set:html="Nuestra pasión es servir a nuestros clientes. Estamos comprometidos a brindar una experiencia excepcional en cada interacción, ofreciendo un servicio personalizado y atento."
+                set:html={i18n.ABOUTUS.VALUES.CONTENT_VOCATION}
             />
         </BentoItem>
 
         <BentoItem 
             class="col-span-10 lg:col-span-6" 
-            title="Innovación"
+            title={i18n.ABOUTUS.VALUES.INNOVATION}
         >
             <div 
                 slot="image"
@@ -201,7 +201,7 @@ import Numeros from "@/components/Numeros.astro";
             <p 
                 slot="content" 
                 class="max-w-xl text-base md:text-lg"
-                set:html="La innovación es nuestro motor. Buscamos constantemente nuevas tecnologías y soluciones para mejorar nuestros procesos y ofrecer servicios más eficientes y convenientes."
+                set:html={i18n.ABOUTUS.VALUES.CONTENT_INNOVATION}
             />
         </BentoItem>
     </section>
