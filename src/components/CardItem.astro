@@ -29,7 +29,10 @@ const { subbody, title, body } = Astro.props;
 	</div>
 
 	<div class="relative select-none flex flex-col gap-1 p-2 text-lg z-20 justify-center aspect-auto">
-		<h2 class="lg:text-2xl text-balance text-white/80 mb-6">{title} <span>&rarr;</span></h2>
+		<h2 class="lg:text-2xl text-balance text-white/80 mb-6">
+			{title}
+			<span>&rarr;</span>
+		</h2>
 		<span class="text-sm lg:text-xl text-sky-200/80 -mt-4 mb-4">{body}</span>
 		<span class="text-sm lg:text-xl text-sky-200/80 -mt-4 mb-4">{subbody}</span>
 	</div>

@@ -2,6 +2,12 @@
 	"SEO_TITLE_1": "Cambios OriSur",
 	"SEO_TITLE_2": "Tu mejora alternativa para el envío de Remesas en Latinoamérica",
 	"SEO_DESCRIPTION": "Envío de remesas rápido y seguro en Latinoamérica. Envía dinero a tus seres queridos en el extranjero de forma fácil y segura. Tarifas competitivas y múltiples opciones de pago.",
+
+	"SEO": {
+		"ERROR_404_TITLE": "404 Página no encontrada - Cambios OriSur",
+		"ERROR_404_DESCRIPTION": "Página no encontrada (Error 404). Verifica la URL o explora nuestras secciones. ¿Necesitas ayuda? Contáctenos."
+	},
+
 			
 	"HEADER": {
 		"LOGO": "Volver a la página de inicio de los Premios ESLAND"
@@ -28,6 +34,8 @@
 	"BENTO_CONTENT_3": "Nuestro equipo de profesionales te brinda un servicio de primera calidad. Con años de experiencia en el sector, nuestros agentes están altamente capacitados para atender tus necesidades de manera rápida y eficiente. Nos enorgullecemos de ofrecer una atención personalizada y resolver cualquier duda que puedas tener. Tu satisfacción es nuestra prioridad.",
 	"BENTO_TITLE_4": "¡Sistema de pago!",
 	"BENTO_CONTENT_4": "Nuestro sistema de pago seguro y confiable te permite enviar dinero de forma rápida y sencilla, utilizando una amplia variedad de métodos. Con nuestro equipo de soporte siempre a tu disposición, podrás realizar tus transacciones con total tranquilidad y confianza.",
+	"BENTO_TITLE_5": "Cotización de Dólar",
+	"BENTO_CONTENT_5": "Fecha:",
 	
 	"PREFOOTER_BUTTON": "Contáctanos",
 	"PREFOOTER_TITLE": "¿Necesitas contactarnos?",

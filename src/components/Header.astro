@@ -27,12 +27,9 @@ const translatePath = useTranslatedPath(lang);
         >
             <img class="w-40 duration-500 hover:scale-110" src="/LogoOrisur.webp" alt="Logo Orisur"/>
         </HeaderLink>
-
-        <!-- <a class="col-span-1" href="/">
-            <img class="w-40 duration-500 hover:scale-110" src="/LogoOrisur.webp" alt="Logo Orisur"/>
-        </a> -->
-
-        <nav class="fixed w-full h-dvh inset-0 bg-[#151a36]/90 md:text-base lg:text-xl flex flex-col items-center justify-center gap-8 -translate-y-full transition-transform duration-300 target:translate-y-0 md:static md:h-[initial] md:bg-[initial] md:flex-row md:translate-y-[initial]">
+        <nav 
+            id="header-menu" 
+            class="fixed w-full h-dvh inset-0 bg-[#151a36]/90 md:text-base lg:text-xl flex flex-col items-center justify-center gap-8 -translate-y-full transition-transform duration-300 target:translate-y-0 md:static md:h-[initial] md:bg-[initial] md:flex-row md:translate-y-[initial]">
             <HeaderLink class="text__glowing" href={translatePath('/')}
             >
                 {t('nav.inicio')}
@@ -53,8 +50,23 @@ const translatePath = useTranslatedPath(lang);
             >
                 {t('nav.contacto')}
             </HeaderLink>
+            <LanguageSelector />
+            <Button
+                className="md:py-2 md:ml-auto md:text-base lg:text-base"
+                url="#"
+                target="_self"
+            >
+                {i18n.HEADER_BUTTON}
+            </Button>
+            <a href="#header-nav" class="md:hidden absolute top-6 right-6">
+                <CloseIcon />
+            </a>
+        </nav>
+        <a href="#header-menu" class="md:hidden"><MenuIcon/></a>
+    </div>
+</header>
 
-            <!-- <ul class="flex gap-5">
+<!-- <ul class="flex gap-5">
                 <li>
                     <a class="text__glowing hover:underline" href="/">
                         Inicio
@@ -81,19 +93,4 @@ const translatePath = useTranslatedPath(lang);
                     </a>
                 </li>
             </ul> -->
-            <LanguageSelector />
-            <Button
-                className="md:py-2 md:ml-auto md:text-base lg:text-base"
-                url="#"
-                target="_self"
-            >
-                {i18n.HEADER_BUTTON}
-            </Button>
-            <a href="#header-nav" class="md:hidden absolute top-6 right-6">
-                <CloseIcon />
-            </a>
-        </nav>
-        <a href="#header-menu" class="md:hidden"><MenuIcon /></a>
-    </div>
-</header>
 

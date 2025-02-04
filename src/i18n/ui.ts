@@ -1,7 +1,7 @@
-import SpainFlag from '@/components/flags/Spain.astro';
+import SpainFlag from '@/components/flags/Venezuela.astro';
 import BrasilFlag from '@/components/flags/Brasil.astro';
 import UnitedStatesFlag from '@/components/flags/UnitedStates.astro';
-import type Comofunciona from '@/pages/comofunciona.astro';
+
 
 // Add missing imports
 export const LANGUAGES: Record<
@@ -35,11 +35,11 @@ export const ui = {
 		'nav.paises': 'Países',
 		'nav.comofunciona': 'Como Funciona',
 		'nav.contacto': 'Contacto',
+		'nav.enviar': '¿Cómo Enviar Dinero?',
+		'nav.preguntas': 'Preguntas Frecuentas',
 		'nav.legal': 'Aviso Legal',
 		'nav.privacidad': 'Privacidad',
 		'nav.cookies': 'Cookies',
-		'nav.preguntas': 'Preguntas Frecuentas',
-		'nav.enviar': '¿Cómo Enviar Dinero?',
 	},
 	en: {
 		'nav.inicio': 'Home',
@@ -47,11 +47,11 @@ export const ui = {
 		'nav.paises': 'Countries',
 		'nav.comofunciona': 'How it works',
 		'nav.contacto': 'Contact Us',
+		'nav.enviar': 'How to Send Money?',
+		'nav.preguntas': 'FAQ',
 		'nav.legal': 'Legal Notice',
 		'nav.privacidad': 'Privacy',
 		'nav.cookies': 'Cookies',
-		'nav.preguntas': 'FAQ',
-		'nav.enviar': 'How to Send Money?',
 	},
 	pt: {
 		'nav.inicio': 'Inicio',
@@ -59,40 +59,45 @@ export const ui = {
 		'nav.paises': 'Países',
 		'nav.comofunciona': 'Como Funciona',
 		'nav.contacto': 'Contato',
+		'nav.enviar': 'Como Enviar Dinheiro?',
+		'nav.preguntas': 'Perguntas Frequentes',
 		'nav.legal': 'Aviso Legal',
 		'nav.privacidad': 'Privacidade',
 		'nav.cookies': 'Cookies',
-		'nav.preguntas': 'Perguntas Frequentes',
-		'nav.enviar': 'Como Enviar Dinheiro?',
 	},
 } as const;
 
 export const routes = {
 	es: {
 		nosotros: 'nosotros',
+		paises: 'paises',
 		comofunciona: 'comofunciona',
 		contacto: 'contacto',
 		enviarDinero: 'enviarDinero',
 		'aviso-legal': 'aviso-legal',
-		privacidad: 'privacidad',
 		cookies: 'cookies',
+		privacidad: 'privacidad',
 	},
 	en: {
-		vota: 'vote',
-		info: 'information',
-		archivo: 'archive',
-		enviarDinero: 'enviarDinero',
-		'aviso-legal': 'legal-notice',
-		privacidad: 'privacy',
+		nosotros: 'aboutUs',
+		paises: 'countries',
+		comofunciona: 'howItWorks',
+		contacto: 'contact',
+		enviarDinero: 'sendMoney',
+		'comofunciona#faq': 'howItWorks#faq',
+		'aviso-legal': 'aviso-legal',
 		cookies: 'cookies',
+		privacidad: 'privacidad',
 	},
 	pt: {
-		vota: 'vota',
-		info: 'informacio',
-		archivo: 'arxiu',
-		enviarDinero: 'enviarDinero',
-		'aviso-legal': 'avis-legal',
-		privacidad: 'privacitat',
+		nosotros: 'nos',
+		paises: 'paises',
+		comofunciona: 'comofunciona',
+		contacto: 'contato',
+		enviarDinero: 'enviarDinheiro',
+		'aviso-legal': 'aviso-legal',
 		cookies: 'cookies',
+		privacidad: 'privacidad',
+		'404': '404',
 	},
 };

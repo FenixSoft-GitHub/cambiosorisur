@@ -2,6 +2,12 @@
 	"SEO_TITLE_1": "OriSur Exchange",
 	"SEO_TITLE_2": "Your better option for sending remittances in Latin America.",
 	"SEO_DESCRIPTION": "Fast and secure money transfers in Latin America. Send money to your loved ones abroad easily and securely. Competitive rates and multiple payment options.",
+
+	"SEO": {
+		"ERROR_404_TITLE": "404 Page not found - Cambios OriSur",
+		"ERROR_404_DESCRIPTION": "Page not found (Error 404). Check the URL or explore our sections. Need help? Contact us."
+	},
+
 	
 	"HEADER": {
 		"LOGO": "Return to the ESLAND Awards Homepage"
@@ -28,6 +34,8 @@
 	"BENTO_CONTENT_3": "Our team of professionals provides you with a premium service. With years of experience in the industry, our agents are highly trained to meet your needs quickly and efficiently. We pride ourselves on offering personalized attention and resolving any questions you may have. Your satisfaction is our priority.",
 	"BENTO_TITLE_4": "Payment system!",
 	"BENTO_CONTENT_4": "Our secure and reliable payment system allows you to send money quickly and easily, using a wide variety of methods. With our support team always at your disposal, you can make your transactions with complete peace of mind and confidence.",
+	"BENTO_TITLE_5": "Dollar Quote",
+	"BENTO_CONTENT_5": "Date:",
 	
 	"PREFOOTER_BUTTON": "Contact us",
 	"PREFOOTER_TITLE": "Do you need to contact us?",

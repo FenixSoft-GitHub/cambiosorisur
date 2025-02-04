@@ -2,6 +2,11 @@
 	"SEO_TITLE_1": "Cambios OriSur",
 	"SEO_TITLE_2": "Sua melhor alternativa para enviar remessas na América Latina.",
 	"SEO_DESCRIPTION": "Remessa rápida e segura na América Latina. Envie dinheiro para seus entes queridos no exterior de forma fácil e segura. Taxas competitivas e múltiplas opções de pagamento.",
+
+	"SEO": {
+		"ERROR_404_TITLE": "404 Página não encontrada - Cambios OriSur",
+		"ERROR_404_DESCRIPTION": "Página não encontrada (Erro 404). Verifique o URL ou navegue em nossas seções. Precisa de ajuda? Entre em contato conosco."
+	},
 	
 	"HEADER": {
 		"LOGO": "Tornar a la pàgina d'inici dels Premis ESLAND"
@@ -28,6 +33,8 @@
 	"BENTO_CONTENT_3": "Nossa equipe de profissionais te oferece um serviço de primeira qualidade. Com anos de experiência no setor, nossos agentes são altamente capacitados para atender às suas necessidades de forma rápida e eficiente. Temos orgulho em oferecer um atendimento personalizado e resolver qualquer dúvida que você possa ter. Sua satisfação é a nossa prioridade.",
 	"BENTO_TITLE_4": "Sistema de pagamento!",
 	"BENTO_CONTENT_4": "Nosso sistema de pagamento seguro e confiável permite que você envie dinheiro de forma rápida e fácil, utilizando uma ampla variedade de métodos. Com nossa equipe de suporte sempre à sua disposição, você poderá realizar suas transações com total tranquilidade e confiança.",
+	"BENTO_TITLE_5": "Cotação do dólar",
+	"BENTO_CONTENT_5": "Data:",
 	
 	"PREFOOTER_BUTTON": "Contate-nos",
 	"PREFOOTER_TITLE": "Precisa entrar em contato conosco?",

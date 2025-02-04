@@ -1,9 +1,12 @@
 ---
 import BentoItem from "./BentoItem.astro";
+import { Tasa1 } from "./queryTasa.tsx";
 import { getI18N } from "@/i18n/"
 
+const tasas = await Tasa1();
 const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
+const color = tasas.monitors.usd.color;
 ---
 
 <section 
@@ -81,6 +84,32 @@ const i18n = getI18N({ currentLocale })
             class="max-w-xl text-base md:text-lg"
             set:html={i18n.BENTO_CONTENT_4}
         />
+    </BentoItem>
+    
+    <BentoItem 
+        class="col-span-10 lg:col-span-10" 
+        title={i18n.BENTO_TITLE_5}
+    >
+        <div 
+            slot="image"
+            class="background transition-scale absolute bottom-0 left-0 top-0 -z-10 h-full w-full bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+            data-src="/Dolar.webp"
+        >
+        </div>
+        <p
+            slot="content"
+            class="max-w-xl text-base md:text-lg"
+        >
+            {i18n.BENTO_CONTENT_5} {tasas.monitors.usd.last_update}   
+        </p>
+        <p 
+            slot="content"
+            class="max-w-xl text-base md:text-lg"
+        >
+            $ USD: {tasas.monitors.usd.price} 
+            <span class={`text-[${color}]`}>{tasas.monitors.usd.symbol}</span>
+            <span>{tasas.monitors.usd.percent} %</span>
+        </p>
     </BentoItem>
     
 </section>
