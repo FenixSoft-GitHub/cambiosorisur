@@ -1,0 +1,125 @@
+---
+import { db, Exchange } from "astro:db";
+import Close from "./icons/Close.astro";
+
+const exchangeRates = await db.select().from(Exchange);
+
+let amountToSend = 0;
+let amountToReceive = 0;
+---
+
+<div class="p-4 bg-white rounded-lg shadow-md max-w-2xl mx-auto">
+  <button
+    popovertarget="my-popover2"
+    popovertargetaction="hide"
+    class="absolute top-3 right-3 shadow-lg text-gray-600 hover:text-white hover:bg-red-500 rounded-full p-1"
+  >
+    <Close class="w-4 h-4" />
+  </button>
+  <h2 class="text-gray-800 text-2xl text-center font-semibold mb-4">
+    Calculadora de Remesas
+  </h2>
+  <div class="mb-4 grip">
+    <div class="flex gap-4 flex-col-2 items-center justify-between">
+      <div class="w-full">
+        <label for="originCountry" class="block text-gray-700 font-medium"
+          >País de Origen:</label
+        >
+        <select
+          id="originCountry"
+          class="mt-1 block w-full px-3 py-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm bg-gray-800"
+        >
+          {
+            exchangeRates.map((rate) => (
+              <option value={rate.rate}>{rate.country}</option>
+            ))
+          }
+        </select>
+      </div>
+
+      <div class="">
+        <label for="amountToReceive" class="block text-gray-700 font-medium"
+          >Tasa:</label
+        >
+        <input
+          type="number"
+          inputmode="decimal"
+          id="rateToCountry"
+          class="mt-1 block w-full px-3 py-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm bg-gray-800"
+          readonly
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label for="amountToSend" class="block text-gray-700 font-medium"
+      >Monto a Enviar:</label
+    >
+    <input
+      type="number"
+      inputmode="numeric"
+      id="amountToSend"
+      class="mt-1 block w-full pl-3 pr-2 py-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm bg-gray-800"
+    />
+  </div>
+
+  <div class="mb-4">
+    <label for="amountToReceive" class="block text-gray-700 font-medium"
+      >Monto a Recibir:</label
+    >
+    <input
+      type="number"
+      inputmode="decimal"
+      id="amountToReceive"
+      class="mt-1 block w-full px-3 py-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm bg-gray-800"
+      readonly
+    />
+  </div>
+
+  <button
+    id="contacto"
+    type="button"
+    disabled={amountToSend <= 0}
+    aria-disabled={amountToSend <= 0}
+    class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-4 rounded w-full"
+  >
+    <a href="/contacto/"> Contáctanos </a>
+  </button>
+</div>
+
+<script>
+  const toSend = document.getElementById("amountToSend");
+  const rateToCountrySelect = document.getElementById("originCountry");
+
+  (document.getElementById("rateToCountry") as HTMLInputElement).value = (
+    rateToCountrySelect as HTMLSelectElement
+  )?.value;
+
+  rateToCountrySelect?.addEventListener("change", () => {
+    (document.getElementById("rateToCountry") as HTMLInputElement).value = (
+      rateToCountrySelect as HTMLSelectElement
+    )?.value;
+    (document.getElementById("amountToSend") as HTMLInputElement).value =
+      "0,00";
+    (document.getElementById("amountToReceive") as HTMLInputElement).value =
+      "0,00";
+  });
+
+  toSend?.addEventListener("input", () => {
+    console.log("Calculando...");
+    const originCountryElement = document.getElementById("originCountry");
+    const originCountry = originCountryElement
+      ? (originCountryElement as HTMLSelectElement).value
+      : "";
+    const amountToSendElement = document.getElementById("amountToSend");
+    const amountToSend = amountToSendElement
+      ? parseFloat((amountToSendElement as HTMLInputElement).value)
+      : 0;
+    const selectedRate = originCountry;
+    const rate = selectedRate ? parseFloat(selectedRate) : 0;
+    const amountToReceive = amountToSend * rate;
+    (document.getElementById("amountToReceive") as HTMLInputElement).value =
+      amountToReceive.toFixed(2);
+  });
+</script>
