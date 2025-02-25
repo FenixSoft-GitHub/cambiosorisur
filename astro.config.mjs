@@ -9,6 +9,8 @@ import db from '@astrojs/db';
 
 import react from '@astrojs/react';
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -21,7 +23,8 @@ export default defineConfig({
       include: ["**/react/*"],
     }),
   ],
-  // output: "server",
+
+  output: "server",
 
   i18n: {
     defaultLocale: "es",
@@ -30,4 +33,6 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+
+  adapter: vercel(),
 });

@@ -54,15 +54,15 @@ const translatePath = useTranslatedPath(lang);
       <HeaderLink class="text__glowing" href={translatePath("/contacto/")}>
         {t("nav.contacto")}
       </HeaderLink>
-      <LanguageSelector />
       <HeaderLink
         checkActive={false}
-        href={translatePath("/")}
+        href={translatePath("/admin/admin/")}
         class="relative z-10"
         aria-label={i18n.HEADER.LOGO}
       >
-        Calculadora
+        Administración
       </HeaderLink>
+      <LanguageSelector />
       <Button
         className="md:py-2 md:ml-auto md:text-base lg:text-base"
         url="#"

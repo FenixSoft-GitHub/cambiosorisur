@@ -15,6 +15,7 @@
     "@astrojs/preact": "^4.0.4",
     "@astrojs/react": "^4.2.0",
     "@astrojs/tailwind": "^6.0.0",
+    "@astrojs/vercel": "^8.0.7",
     "@fontsource-variable/onest": "^5.1.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

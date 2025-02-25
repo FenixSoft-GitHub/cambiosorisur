@@ -1,24 +1,48 @@
 ---
-import { db, Exchange } from "astro:db";
 import Close from "./icons/Close.astro";
 
-const exchangeRates = await db.select().from(Exchange);
+interface Exchange {
+  country: string;
+  rate: number;
+  symbol: string;
+  currency: string;
+}
+
+// const exchangeRates = await db.select().from(Exchange);
+interface Props {
+  exchangeRates: Exchange[];
+}
+
+const { exchangeRates } = Astro.props as Props;
 
 let amountToSend = 0;
 let amountToReceive = 0;
+// style="mask-image: linear-gradient(white 80%, transparent);"
 ---
 
-<div class="p-4 bg-white rounded-lg shadow-md max-w-2xl mx-auto">
-  <button
-    popovertarget="my-popover2"
-    popovertargetaction="hide"
-    class="absolute top-3 right-3 shadow-lg text-gray-600 hover:text-white hover:bg-red-500 rounded-full p-1"
-  >
-    <Close class="w-4 h-4" />
-  </button>
-  <h2 class="text-gray-800 text-2xl text-center font-semibold mb-4">
-    Calculadora de Remesas
-  </h2>
+<div class="p-3 bg-white rounded-lg shadow-md max-w-2xl mx-auto">
+  <div class="relative mb-4">
+    <img
+      class="rounded-t-lg opacity-90"
+      src="/CalculosFinan.webp"
+      alt="Imagen de fondo Financiero"
+    />
+
+    <button
+      popovertarget="my-popover2"
+      popovertargetaction="hide"
+      class="absolute top-2 right-2 bg-white/50 shadow-lg text-gray-600 hover:text-white hover:bg-red-500 rounded-full p-1"
+    >
+      <Close class="w-4 h-4" />
+    </button>
+
+    <h2
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-semibold text-center"
+    >
+      Calculadora de Remesas
+    </h2>
+  </div>
+
   <div class="mb-4 grip">
     <div class="flex gap-4 flex-col-2 items-center justify-between">
       <div class="w-full">
@@ -27,25 +51,30 @@ let amountToReceive = 0;
         >
         <select
           id="originCountry"
-          class="mt-1 block w-full px-3 py-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm bg-gray-800"
+          class="mt-1 block w-full px-2 py-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm bg-gray-800"
         >
           {
             exchangeRates.map((rate) => (
-              <option value={rate.rate}>{rate.country}</option>
+              <option
+                key={rate.country}
+                value={rate.rate}
+                data-symbol={rate.symbol}
+              >
+                {rate.country}
+              </option>
             ))
           }
         </select>
       </div>
-
       <div class="">
-        <label for="amountToReceive" class="block text-gray-700 font-medium"
+        <label for="rateToCountry" class="block text-gray-700 font-medium"
           >Tasa:</label
         >
         <input
           type="number"
           inputmode="decimal"
           id="rateToCountry"
-          class="mt-1 block w-full px-3 py-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm bg-gray-800"
+          class="mt-1 text-center block w-full px-3 py-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm bg-gray-800"
           readonly
         />
       </div>
@@ -77,49 +106,81 @@ let amountToReceive = 0;
     />
   </div>
 
+  <p id="rateInfo" class="text-black text-center font-semibold"></p>
+
   <button
     id="contacto"
     type="button"
     disabled={amountToSend <= 0}
     aria-disabled={amountToSend <= 0}
-    class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-4 rounded w-full"
+    class="bg-amber-400 hover:bg-amber-500 text-black font-bold py-2 px-4 rounded w-full"
   >
     <a href="/contacto/"> Contáctanos </a>
   </button>
 </div>
 
 <script>
-  const toSend = document.getElementById("amountToSend");
-  const rateToCountrySelect = document.getElementById("originCountry");
+  const toSend = document.getElementById("amountToSend") as HTMLInputElement;
+  const rateToCountrySelect = document.getElementById(
+    "originCountry"
+  ) as HTMLSelectElement;
+  const rateToCountry = document.getElementById(
+    "rateToCountry"
+  ) as HTMLInputElement;
+  const amountToReceive = document.getElementById(
+    "amountToReceive"
+  ) as HTMLInputElement;
+  const rateInfo = document.getElementById("rateInfo") as HTMLParagraphElement;
 
-  (document.getElementById("rateToCountry") as HTMLInputElement).value = (
-    rateToCountrySelect as HTMLSelectElement
-  )?.value;
+  function updateRateAndClearFields() {
+    if (rateToCountrySelect && rateToCountry) {
+      const selectedOption =
+        rateToCountrySelect.options[rateToCountrySelect.selectedIndex];
+      const selectedRate = selectedOption.value;
+      const selectedSymbol = selectedOption.dataset.symbol; // Obtener el símbolo de la moneda
 
-  rateToCountrySelect?.addEventListener("change", () => {
-    (document.getElementById("rateToCountry") as HTMLInputElement).value = (
-      rateToCountrySelect as HTMLSelectElement
-    )?.value;
-    (document.getElementById("amountToSend") as HTMLInputElement).value =
-      "0,00";
-    (document.getElementById("amountToReceive") as HTMLInputElement).value =
-      "0,00";
+      rateToCountry.value = selectedRate;
+
+      if (rateInfo) {
+        rateInfo.textContent = `Tasa 1 ${selectedSymbol} = ${selectedRate} VES`;
+      }
+    }
+    if (toSend && amountToReceive) {
+      toSend.value = "";
+      amountToReceive.value = "";
+    }
+  }
+
+  function calculateAmountReceived() {
+    if (!toSend || !rateToCountrySelect || !rateToCountry || !amountToReceive)
+      return;
+
+    const amountToSend = parseFloat(toSend.value) || 0;
+    const rate = parseFloat(rateToCountrySelect.value) || 0;
+    const amountToReceiveValue = amountToSend * rate;
+
+    amountToReceive.value = amountToReceiveValue.toFixed(2);
+    rateToCountry.value = rate.toFixed(2);
+  }
+
+  // Restaurar la tasa guardada en localStorage al cargar la página
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedRate = localStorage.getItem("selectedRate");
+    if (savedRate) {
+      const selectedOption = [...rateToCountrySelect.options].find(
+        (opt) => opt.value === savedRate
+      );
+      if (selectedOption) {
+        rateToCountrySelect.value = savedRate;
+        rateToCountry.value = savedRate;
+        const savedSymbol = selectedOption.dataset.symbol;
+        if (rateInfo) {
+          rateInfo.textContent = `Tasa 1 ${savedSymbol} = ${savedRate} VES`;
+        }
+      }
+    }
   });
 
-  toSend?.addEventListener("input", () => {
-    console.log("Calculando...");
-    const originCountryElement = document.getElementById("originCountry");
-    const originCountry = originCountryElement
-      ? (originCountryElement as HTMLSelectElement).value
-      : "";
-    const amountToSendElement = document.getElementById("amountToSend");
-    const amountToSend = amountToSendElement
-      ? parseFloat((amountToSendElement as HTMLInputElement).value)
-      : 0;
-    const selectedRate = originCountry;
-    const rate = selectedRate ? parseFloat(selectedRate) : 0;
-    const amountToReceive = amountToSend * rate;
-    (document.getElementById("amountToReceive") as HTMLInputElement).value =
-      amountToReceive.toFixed(2);
-  });
+  rateToCountrySelect.addEventListener("change", updateRateAndClearFields);
+  toSend.addEventListener("input", calculateAmountReceived);
 </script>
