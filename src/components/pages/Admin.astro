@@ -1,0 +1,255 @@
+---
+import { db, Exchange, desc } from "astro:db";
+import Layout from "@/layouts/Layout.astro";
+import HeroContainer from "../HeroContainer.astro";
+import AddCountry from "../AddCountry.astro";
+import EditCountry from "../EditCountry.astro"; // Importa el componente EditCountry
+import DeleteCountry from "../DeleteCountry.astro"; // Importa el componente DeleteCountry
+
+let exchanges = await db
+  .select()
+  .from(Exchange)
+  .orderBy(Exchange.country)
+  .all();
+
+let showAddForm = false;
+let showEditForm = false;
+let editingExchangeId: number | null = null;
+---
+
+<Layout
+  title="Administración"
+  description="Página para actualizar las tasas de cambio"
+>
+  <HeroContainer img="/FondoAdmin.webp">
+    <span
+      class="shadown text-4xl lg:text-6xl font-bold tracking-widest text-wrap font-tomaso"
+    >
+      Administración
+      <!-- {i18n.CONTACTUS.TITLE} -->
+    </span>
+  </HeroContainer>
+
+  <section class="mx-auto w-full max-w-[1400px] p-6 sm:p-20 mt-36">
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-black bg-white border border-gray-300">
+        <thead>
+          <tr>
+            <th class="py-2 px-4 border-b">ID</th>
+            <th class="py-2 px-4 border-b">País</th>
+            <th class="py-2 px-4 border-b">Moneda</th>
+            <th class="py-2 px-4 border-b">Tasa</th>
+            <th class="py-2 px-4 border-b">Símbolo</th>
+            <th class="py-2 px-4 border-b">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            exchanges.map((exchange) => (                
+              <tr>
+                <td class="py-2 px-4 border-b">{exchange.id}</td>
+                <td class="py-2 px-4 border-b">{exchange.country}</td>
+                <td class="py-2 px-4 border-b">{exchange.currency}</td>
+                <td class="py-2 px-4 border-b">{exchange.rate}</td>
+                <td class="py-2 px-4 border-b">{exchange.symbol}</td>
+                <td class="py-2 px-4 border-b">
+                  <div class="flex justify-between">
+                    <button
+                      on:click={() => (editingExchangeId = exchange.id)}
+                      popovertarget={`my-popoverEditCountry-${exchange.id}`}
+                      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      popovertarget={`my-popoverDeleteCountry-${exchange.id}`}
+                      class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+
+      {/* Popovers para Editar y Eliminar */}
+      {
+        exchanges.map((exchange) => (
+          <>
+            {editingExchangeId === exchange.id && ( // Renderizar solo si se está editando
+              <div
+                id={`my-popoverEditCountry-${exchange.id}`}
+                popover
+                class="bg-white w-2/6 border border-gray-400 rounded-lg shadow shadow-white p-2"
+              >
+                <EditCountry exchange={exchange} />
+              </div>
+            )}
+            <div
+              id={`my-popoverDeleteCountry-${exchange.id}`}
+              popover
+              class="bg-white w-2/6 border border-gray-400 rounded-lg shadow shadow-white p-2"
+            >
+              <DeleteCountry exchange={exchange} />
+            </div>
+          </>
+        ))
+      }
+      <button
+        popovertarget="my-popoverAddCountry"
+        class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Agregar
+      </button>
+    </div>
+
+    <div
+      id="my-popoverAddCountry"
+      popover
+      class="bg-white w-2/6 border border-gray-400 rounded-lg shadow shadow-white p-2"
+    >
+      <AddCountry />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  [popover] {
+    top: 8rem;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.3);
+  }
+
+  /*   IS-OPEN STATE   */
+  [popover]:popover-open {
+    translate: 0 0;
+  }
+
+  /*   EXIT STATE   */
+  [popover] {
+    transition:
+      translate 0.7s ease-out,
+      display 0.7s ease-out allow-discrete;
+    translate: 0 -22rem;
+  }
+
+  /*   0. BEFORE-OPEN STATE   */
+  @starting-style {
+    [popover]:popover-open {
+      translate: 0 -22rem;
+    }
+  }
+</style>
+
+<!-- <script>
+  const boton = document.getElementById("add-boton");
+  const componente = document.getElementById("add-country");
+
+  boton.onclick = function () {
+    if (componente.style.display === "none") {
+      componente.style.display = "block";
+    } else {
+      componente.style.display = "none";
+    }
+  };
+</script> -->
+
+<!-- {
+        showAddForm && (
+            <form on:submit={handleAdd} class="mt-4">
+              <input type="text" name="country" placeholder="País" required />
+              <input type="text" name="currency" placeholder="Moneda" required />
+              <input type="number" name="rate" placeholder="Tasa" required />
+              <input type="text" name="symbol" placeholder="Símbolo" />
+              <button
+                type="submit"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Guardar
+              </button>
+              <button type="button" onclick={() => (showAddForm = false)}>
+                Cancelar
+              </button>
+            </form>
+            <AddCountry />
+          <div>Hola</div>
+        )
+      }
+
+      {
+        showEditForm && (
+          <form onsubmit={handleEdit} class="mt-4">
+            <input
+              type="text"
+              name="country"
+              value={editingExchange.country}
+              required
+            />
+            <input
+              type="text"
+              name="currency"
+              value={editingExchange.currency}
+              required
+            />
+            <input
+              type="number"
+              name="rate"
+              value={editingExchange.rate}
+              required
+            />
+            <input type="text" name="symbol" value={editingExchange.symbol} />
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Actualizar
+            </button>
+            <button
+              type="button"
+              onclick={() => {
+                showEditForm = false;
+                editingExchange = null;
+              }}
+            >
+              Cancelar
+            </button>
+          </form>
+        )
+      } -->
+
+<!-- const handleAdd = async (event) => {
+  const formData = new FormData(event.target);
+  const country = formData.get("country");
+  const currency = formData.get("currency");
+  const rate = formData.get("rate");
+  const symbol = formData.get("symbol");
+
+  await db.insert(Exchange).values({ country, currency, rate, symbol });
+  exchanges = await db.select().from(Exchange);
+  showAddForm = false;
+};
+
+const handleEdit = async (event) => {
+  const formData = new FormData(event.target);
+  const id = editingExchange.id;
+  const country = formData.get("country");
+  const currency = formData.get("currency");
+  const rate = formData.get("rate");
+  const symbol = formData.get("symbol");
+
+  await db
+    .update(Exchange)
+    .set({ country, currency, rate, symbol })
+    .where({ id });
+  exchanges = await db.select().from(Exchange);
+  showEditForm = false;
+  editingExchange = null;
+};
+
+const handleDelete = async (id) => {
+  await db.delete(Exchange).where({ id });
+  exchanges = await db.select().from(Exchange);
+}; -->
