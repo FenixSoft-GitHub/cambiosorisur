@@ -1,0 +1,49 @@
+---
+import { db, Exchange, eq } from "astro:db";
+
+export interface Props {
+  exchange: {
+    id: number;
+    country: string;
+    currency: string;
+    rate: number;
+    symbol: string;
+  };
+}
+
+const { exchange } = Astro.props;
+
+if (Astro.request.method === "POST") {
+  await db.delete(Exchange).where(eq(Exchange.id, exchange.id))
+  .run();
+
+  // Redirigir o recargar la página para ver los cambios
+  return Astro.redirect("/admin"); // Asumiendo que "/admin" es tu página de administración
+}
+---
+
+<div
+  class="flex h-full flex-col gap-4 p-3 bg-white rounded-lg shadow-md text-black"
+>
+  <h2 class="text-2xl font-bold text-center mb-4 text-gray-700">
+    Eliminar País
+  </h2>
+  <p>
+    ¿Estás seguro de que deseas eliminar el registro de {exchange.country}?
+  </p>
+  <form method="post" class="flex justify-center gap-4">
+    <button
+      type="submit"
+      class="bg-red-500 rounded-md py-2 px-4 hover:bg-red-700 text-white"
+    >
+      Eliminar
+    </button>
+    <button
+      type="button"
+      onclick="document.getElementById('my-popoverDeleteCountry').hidePopover()"
+      class="bg-gray-300 rounded-md py-2 px-4 hover:bg-gray-400 text-black"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>
