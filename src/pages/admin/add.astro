@@ -21,20 +21,8 @@ if (Astro.request.method === "POST") {
     typeof rate === "number" &&
     typeof symbol === "string"
   ) {
-    try {
-      await db.insert(Exchange).values({ country, currency, rate, symbol });
-      return Astro.redirect("/admin/admin/");
-    } catch (error) {
-      if (
-        error.message.includes("UNIQUE constraint failed: Exchange.country")
-      ) {
-        console.error("El país ya existe.");
-        // Aquí puedes mostrar un mensaje al usuario
-      } else {
-        console.error("Error al insertar:", error);
-        // Aquí puedes manejar otros errores
-      }
-    }
+    await db.insert(Exchange).values({ country, currency, rate, symbol });
+    return Astro.redirect("/admin/admin/");
   }
 }
 ---
