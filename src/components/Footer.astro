@@ -6,245 +6,251 @@ import X from "./icons/X.astro";
 import Youtube from "./icons/Youtube.astro";
 // import YoutubeC from "./icons/YoutubeC.astro";
 import Logo from "@/components/Logo.astro";
-import Link from "@/components/Link.astro"
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils"
+import Link from "@/components/Link.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "@/i18n/utils";
 
+import { getI18N } from "@/i18n/";
 
-import { getI18N } from "@/i18n/"
-
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-
 ---
 
 <footer class="bg-black/40">
-    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div class="md:flex md:justify-between">
-            <div class="mb-6 md:mb-0">
-                <a 
-                    href="/" 
-                    class="-mt-16 flex items-center justify-center mb-4">
-                    <Logo
-                        class="absolute w-20 m-auto blur-md opacity-0 transition-opacity duration-300 hover:opacity-100"
-                    />
-                    <Logo class="h-auto w-20" />
-                </a>
-            </div>
+  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <div class="md:flex md:justify-between">
+      <div class="mb-6 md:mb-0">
+        <a href="/" class="-mt-16 flex items-center justify-center mb-4">
+          <img
+            class="w-16 duration-500 hover:scale-110"
+            src="/YomisCash.webp"
+            alt="Logo Orisur"
+          />
+          <img
+            class="absolute w-20 m-auto blur-md opacity-0 transition-opacity duration-300 hover:opacity-100"
+            src="/YomisCash.webp"
+            alt="Logo Orisur"
+          />
+        </a>
+      </div>
 
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
-                <div>
-                    <h2 class="mb-2 text-sm font-semibold uppercase">
-                        {i18n.FOOTER.WEB_MAP.TITLE}
-                    </h2>
-                    <ul class="text-gray-500 font-medium">
-                        <li class="">
-                            <Link
-                                href={translatePath('/')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.inicio')}
-                            </Link>
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+        <div>
+          <h2 class="mb-2 text-sm font-semibold uppercase">
+            {i18n.FOOTER.WEB_MAP.TITLE}
+          </h2>
+          <ul class="text-gray-500 font-medium">
+            <li class="">
+              <Link
+                href={translatePath("/")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.inicio")}
+              </Link>
 
-                            <!-- <a href="/" class="hover:underline ">
+              <!-- <a href="/" class="hover:underline ">
                                 Inicio
                             </a> -->
-                        </li>
-                        <li>
-                             <Link
-                                href={translatePath('/nosotros')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.nosotros')}
-                            </Link>
-                            <!-- <a href="/nosotros" class="hover:underline">
+            </li>
+            <li>
+              <Link
+                href={translatePath("/nosotros")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.nosotros")}
+              </Link>
+              <!-- <a href="/nosotros" class="hover:underline">
                                 Nosotros
                             </a> -->
-                        </li>
-                        <li>
-                            <Link
-                                href={translatePath('/paises')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.paises')}
-                            </Link>
-                            <!-- <a href="/paises" class="hover:underline">
+            </li>
+            <li>
+              <Link
+                href={translatePath("/paises")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.paises")}
+              </Link>
+              <!-- <a href="/paises" class="hover:underline">
                                 Países
                             </a> -->
-                        </li>
-                        <li>
-                            <Link
-                                href={translatePath('/comofunciona')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.comofunciona')}
-                            </Link>
-                            <!-- <a href="/comofunciona" class="hover:underline">
+            </li>
+            <li>
+              <Link
+                href={translatePath("/comofunciona")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.comofunciona")}
+              </Link>
+              <!-- <a href="/comofunciona" class="hover:underline">
                                 Como Funciona
                             </a> -->
-                        </li>
-                        <li>
-                            <Link
-                                href={translatePath('/contacto')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.contacto')}
-                            </Link>
-                            <!-- <a href="/contacto" class="hover:underline">
+            </li>
+            <li>
+              <Link
+                href={translatePath("/contacto")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.contacto")}
+              </Link>
+              <!-- <a href="/contacto" class="hover:underline">
                                 Contacto
                             </a> -->
-                        </li>
-                    </ul>
-                </div>
+            </li>
+          </ul>
+        </div>
 
-                <div>
-                    <h2 class="mb-2 text-sm font-semibold uppercase">
-                        {i18n.FOOTER.LEGAL.TITLE}
-                        <!-- Legal -->
-                    </h2>
-                    <ul class="text-gray-500 font-medium">
-                        <li>
-                            <Link
-                                href={translatePath('/')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.legal')}
-                            </Link>
+        <div>
+          <h2 class="mb-2 text-sm font-semibold uppercase">
+            {i18n.FOOTER.LEGAL.TITLE}
+            <!-- Legal -->
+          </h2>
+          <ul class="text-gray-500 font-medium">
+            <li>
+              <Link
+                href={translatePath("/")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.legal")}
+              </Link>
 
-                            <!-- <a href="#" class="hover:underline">
+              <!-- <a href="#" class="hover:underline">
                                 Privacy Policy
                             </a> -->
-                        </li>
-                        <li>
-                            <Link
-                                href={translatePath('/')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.privacidad')}
-                            </Link>
-                            <!-- <a href="#" class="hover:underline">
+            </li>
+            <li>
+              <Link
+                href={translatePath("/")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.privacidad")}
+              </Link>
+              <!-- <a href="#" class="hover:underline">
                                 Terms &amp; Conditions
                             </a> -->
-                        </li>
-                        <li>
-                            <Link
-                                href={translatePath('/')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.cookies')}
-                            </Link>
-                            <!-- <a href="#" class="hover:underline">
+            </li>
+            <li>
+              <Link
+                href={translatePath("/")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.cookies")}
+              </Link>
+              <!-- <a href="#" class="hover:underline">
                                 Terms &amp; Conditions
                             </a> -->
-                        </li>
-                        <li>
-                            <Link
-                                href={translatePath('/comofunciona#faq')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.preguntas')}
-                            </Link>
-                            <!-- <a class="hover:underline" href="/comofunciona#faq">
+            </li>
+            <li>
+              <Link
+                href={translatePath("/comofunciona#faq")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.preguntas")}
+              </Link>
+              <!-- <a class="hover:underline" href="/comofunciona#faq">
                                 Ir a Preguntas Frecuentes
                             </a> -->
-                        </li>
-                        <li>
-                            <Link
-                                href={translatePath('/enviarDinero')}
-                                class="hover:underline hover:text-primary duration-300"
-                            >
-                                {t('nav.enviar')}
-                            </Link>
-                            <!-- <a class="hover:underline" href="/enviarDinero">
+            </li>
+            <li>
+              <Link
+                href={translatePath("/enviarDinero")}
+                class="hover:underline hover:text-primary duration-300"
+              >
+                {t("nav.enviar")}
+              </Link>
+              <!-- <a class="hover:underline" href="/enviarDinero">
                                 ¿Como Enviar Dinero?
                             </a> -->
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="mb-2 text-sm font-semibold uppercase">
-                        {i18n.FOOTER.CONTACTUS}
-                    </h2>
-                    <ul class="text-gray-500 font-medium">
-                        <li >
-                            <a href="https://flowbite.com/">
-                                WhatsApp
-                            </a>
-                        </li>
-                        <li>
-                            <a 
-                                class="flex items-center gap-2 hover:underline" 
-                                href="https://web.whatsapp.com/send?phone=584124998811" 
-                                target="_blank"
-                            >
-                                <WhatsApp class="w-4" />
-                                +58 412-488 6644
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="mb-6 text-sm font-semibold uppercase text-center">
-                        {i18n.FOOTER.FOLLOWUS}
-                    </h2>
-                    <div class="flex mt-4 sm:justify-center sm:mt-0">
-                        <a href="#" class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:transition ease-in-out duration-1000 hover:scale-110 hover:bg-[#3b5998] ms-3">
-                            <FaceBook/>
-                            <span class="sr-only">Facebook</span>
-                        </a>
-                        <a 
-                            href="https://x.com/OrtizSis" 
-                            class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 hover:transition ease-in-out duration-1000 hover:bg-[#00acee] ms-3"
-                            target="_blank"
-                        >
-                            <X/>                           
-                            <span class="sr-only">X</span>
-                        </a>
-                        <a href="#" class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:transition ease-in-out duration-1000 hover:scale-110 hover:bg-[#c4302b] ms-3">
-                            <Youtube/> 
-                            <!-- <YoutubeC class="lg:hidden"/>  -->
-                            <span class="sr-only">YouTube</span>
-                        </a>
-                        <a 
-                            href="https://www.instagram.com/yomis_garden/" 
-                            class="icon text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 ms-3"
-                            target="_blank"
-                        >
-                            <Instagram/>
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </li>
+          </ul>
         </div>
-        <hr class="my-2 border-gray-500 sm:mx-auto lg:my-4" />
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <span 
-                class="text-sm text-gray-400 sm:text-center"
+        <div>
+          <h2 class="mb-2 text-sm font-semibold uppercase">
+            {i18n.FOOTER.CONTACTUS}
+          </h2>
+          <ul class="text-gray-500 font-medium">
+            <li>
+              <a href="https://flowbite.com/"> WhatsApp </a>
+            </li>
+            <li>
+              <a
+                class="flex items-center gap-2 hover:underline"
+                href="https://web.whatsapp.com/send?phone=584124998811"
+                target="_blank"
+              >
+                <WhatsApp class="w-4" />
+                +58 412-488 6644
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold uppercase text-center">
+            {i18n.FOOTER.FOLLOWUS}
+          </h2>
+          <div class="flex mt-4 sm:justify-center sm:mt-0">
+            <a
+              href="#"
+              class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:transition ease-in-out duration-1000 hover:scale-110 hover:bg-[#3b5998] ms-3"
             >
-                &copy; &nbsp;{new Date().getFullYear()}&nbsp;
-                <a href="#" class="hover:underline">
-                    Cambios OriSur™.
-                </a>
-                {i18n.FOOTER.DISCLAIMER}
-            </span>
+              <FaceBook />
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a
+              href="https://x.com/OrtizSis"
+              class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 hover:transition ease-in-out duration-1000 hover:bg-[#00acee] ms-3"
+              target="_blank"
+            >
+              <X />
+              <span class="sr-only">X</span>
+            </a>
+            <a
+              href="#"
+              class="text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:transition ease-in-out duration-1000 hover:scale-110 hover:bg-[#c4302b] ms-3"
+            >
+              <Youtube />
+              <!-- <YoutubeC class="lg:hidden"/>  -->
+              <span class="sr-only">YouTube</span>
+            </a>
+            <a
+              href="https://www.instagram.com/yomis_garden/"
+              class="icon text-gray-500 bg-gray-500/30 rounded-full p-2 hover:text-gray-200 hover:scale-110 ms-3"
+              target="_blank"
+            >
+              <Instagram />
+              <span class="sr-only">Instagram</span>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
+    <hr class="my-2 border-gray-500 sm:mx-auto lg:my-4" />
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-gray-400 sm:text-center">
+        &copy; &nbsp;{new Date().getFullYear()}&nbsp;
+        <a href="#" class="hover:underline"> Cambios OriSur™. </a>
+        {i18n.FOOTER.DISCLAIMER}
+      </span>
+    </div>
+  </div>
 </footer>
 
 <style>
-    .icon:hover {
-        background: radial-gradient(
-            circle at 33% 100%,
-            #fed373 4%,
-            #f15245 30%,
-            #d92e7f 62%,
-            #9b36b7 85%,
-            #515ecf
-        );
-        transition: 1s ease-in-out;
-    }
+  .icon:hover {
+    background: radial-gradient(
+      circle at 33% 100%,
+      #fed373 4%,
+      #f15245 30%,
+      #d92e7f 62%,
+      #9b36b7 85%,
+      #515ecf
+    );
+    transition: 1s ease-in-out;
+  }
 </style>

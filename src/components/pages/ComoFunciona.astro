@@ -1,153 +1,175 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import HeroContainer from '../HeroContainer.astro';
-import Logo from '../Logo.astro';
-import PreguntasItem from '../PreguntasItem.astro';
-import { getI18N } from "@/i18n/"
+import Layout from "@/layouts/Layout.astro";
+import HeroContainer from "../HeroContainer.astro";
+import Logo from "../Logo.astro";
+import PreguntasItem from "../PreguntasItem.astro";
+import { getI18N } from "@/i18n/";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <Layout title="¿Como Funciona?" description="¿Como Funciona?">
-    <HeroContainer img='/ComoFunciona2.jpeg'>
-        <span class="shadown text-4xl lg:text-6xl font-bold tracking-widest font-tomaso">
-            {i18n.HOWITWORKS.TITLE}
-        </span>
-    </HeroContainer>
+  <HeroContainer img="/ComoFunciona2.jpeg">
+    <span
+      class="shadown text-4xl lg:text-6xl font-bold tracking-widest font-tomaso"
+    >
+      {i18n.HOWITWORKS.TITLE}
+    </span>
+  </HeroContainer>
 
-    <main class="pb-24 mt-40">
-        
-        <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8">
-            <div id="theater-text" class="md:w-1/2 space-y-4">
-                <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
-                >
-                    {i18n.HOWITWORKS.TITLE_1}
-                </h1>
-                <p set:html={i18n.HOWITWORKS.CONTENT_1}/>
-            </div>
-            <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
-                <img
-                    class="object-cover w-full h-full rounded-md"
-                    height={500}
-                    src="/Manos.webp"
-                    style={{
-                        aspectRatio: "812/556",
-                        objectFit: "cover",
-                    }}
-                    width={500}
-                />
-            </div>
-        </section>
-
-        <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
+  <main class="pb-24 mt-40">
+    <section
+      class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
+    >
+      <div id="theater-text" class="md:w-1/2 space-y-4">
+        <h1
+          class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
         >
-            <div id="trophies" class="mt-6 md:mt-0 md:w-1/2">
-                <img
-                    class="object-cover w-full h-full rounded-md"
-                    height={556}
-                    src="/ContarDinero.webp"
-                    style={{
-                        aspectRatio: "812/556",
-                        objectFit: "cover",
-                    }}
-                    width={812}
-                />
-            </div>
-            <div id="trophies-text" class="md:w-1/2 space-y-4">
-                <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
-                >
-                    {i18n.HOWITWORKS.TITLE_2}
-                </h1>
-                <p set:html={i18n.HOWITWORKS.CONTENT_2}/>
-            </div>
-        </section>
+          {i18n.HOWITWORKS.TITLE_1}
+        </h1>
+        <p set:html={i18n.HOWITWORKS.CONTENT_1} />
+      </div>
+      <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
+        <img
+          class="object-cover w-full h-full rounded-md"
+          height={500}
+          src="/Manos.webp"
+          style={{
+            aspectRatio: "812/556",
+            objectFit: "cover",
+          }}
+          width={500}
+        />
+      </div>
+    </section>
 
-        <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8">
-            <div id="theater-text" class="md:w-1/2 space-y-4">
-                <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
-                >
-                    {i18n.HOWITWORKS.TITLE_3}
-                </h1>
-                <p set:html={i18n.HOWITWORKS.CONTENT_3} />
-            </div>
-            <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
-                <img
-                    class="object-cover w-full h-full rounded-md"
-                    height={500}
-                    src="/Entrega.webp"
-                    style={{
-                        aspectRatio: "812/556",
-                        objectFit: "cover",
-                    }}
-                    width={500}
-                />
-            </div>
-        </section>
-
-        <section class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
+    <section
+      class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
+    >
+      <div id="trophies" class="mt-6 md:mt-0 md:w-1/2">
+        <img
+          class="object-cover w-full h-full rounded-md"
+          height={556}
+          src="/ContarDinero.webp"
+          style={{
+            aspectRatio: "812/556",
+            objectFit: "cover",
+          }}
+          width={812}
+        />
+      </div>
+      <div id="trophies-text" class="md:w-1/2 space-y-4">
+        <h1
+          class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
         >
-            <div id="trophies" class="mt-6 md:mt-0 md:w-1/2">
-                <img
-                    class="object-cover w-full h-full rounded-md"
-                    height={556}
-                    src="/Transferencia.webp"
-                    style={{
-                        aspectRatio: "812/556",
-                        objectFit: "cover",
-                    }}
-                    width={812}
-                />
-            </div>
-            <div id="trophies-text" class="md:w-1/2 space-y-4">
-                <h1 class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
-                >
-                    {i18n.HOWITWORKS.TITLE_4}
-                </h1>
-                <p set:html={i18n.HOWITWORKS.CONTENT_4} />
-            </div>
-        </section>
+          {i18n.HOWITWORKS.TITLE_2}
+        </h1>
+        <p set:html={i18n.HOWITWORKS.CONTENT_2} />
+      </div>
+    </section>
 
-        <section id="faq" class="lg:text-xl text-left px-20 max-w-[70ch] text-pretty mx-auto my-10">
-            <div class="flex items-center justify-center mb-4">
-                <Logo
-                    class="absolute w-16 m-auto blur-md opacity-0 transition- opacity duration-300 hover:opacity-100"
-                />
-                <Logo class="w-16 text-white m-auto" />
-            </div>
-            <h1 class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide">
-                {i18n.HOWITWORKS.FAQ.TITLE}
-            </h1>
-            <PreguntasItem
-                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_1}
-                answers={i18n.HOWITWORKS.FAQ.ANSWER_1}
-            />
-            <PreguntasItem
-                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_2}
-                answers={i18n.HOWITWORKS.FAQ.ANSWER_2}
-            />
-            <PreguntasItem
-                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_3}
-                answers={i18n.HOWITWORKS.FAQ.ANSWER_3}
-            />
-            <PreguntasItem
-                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_4}
-                answers={i18n.HOWITWORKS.FAQ.ANSWER_4}
-            />
-            <PreguntasItem
-                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_5}
-                answers={i18n.HOWITWORKS.FAQ.ANSWER_5}
-            />
-            <PreguntasItem
-                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_6}
-                answers={i18n.HOWITWORKS.FAQ.ANSWER_6}
-            />
-            <PreguntasItem
-                questions={i18n.HOWITWORKS.FAQ.QUESTIONS_7}
-                answers={i18n.HOWITWORKS.FAQ.ANSWER_7}
-            />
-        </section>
-    </main>
+    <section
+      class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
+    >
+      <div id="theater-text" class="md:w-1/2 space-y-4">
+        <h1
+          class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
+        >
+          {i18n.HOWITWORKS.TITLE_3}
+        </h1>
+        <p set:html={i18n.HOWITWORKS.CONTENT_3} />
+      </div>
+      <div id="theater" class="mt-6 md:mt-0 md:w-1/2">
+        <img
+          class="object-cover w-full h-full rounded-md"
+          height={500}
+          src="/Entrega.webp"
+          style={{
+            aspectRatio: "812/556",
+            objectFit: "cover",
+          }}
+          width={500}
+        />
+      </div>
+    </section>
+
+    <section
+      class="w-full max-w-[1400px] mx-auto my-24 gap-10 text-pretty px-6 text-left text-xl sm:px-20 flex flex-col md:flex-row items-center justify-between p-6 md:p-8"
+    >
+      <div id="trophies" class="mt-6 md:mt-0 md:w-1/2">
+        <img
+          class="object-cover w-full h-full rounded-md"
+          height={556}
+          src="/Transferencia.webp"
+          style={{
+            aspectRatio: "812/556",
+            objectFit: "cover",
+          }}
+          width={812}
+        />
+      </div>
+      <div id="trophies-text" class="md:w-1/2 space-y-4">
+        <h1
+          class="mx-auto mb-10 text-balance text-left text-3xl lg:text-5xl font-semibold tracking-wide"
+        >
+          {i18n.HOWITWORKS.TITLE_4}
+        </h1>
+        <p set:html={i18n.HOWITWORKS.CONTENT_4} />
+      </div>
+    </section>
+
+    <section
+      id="faq"
+      class="lg:text-xl text-left px-20 max-w-[70ch] text-pretty mx-auto my-10"
+    >
+      <div class="flex items-center justify-center mb-4">
+        <img
+          class="w-16 duration-500 hover:scale-110"
+          src="/YomisCash.webp"
+          alt="Logo Orisur"
+        />
+        <img
+          class="absolute w-20 m-auto blur-md opacity-0 transition-opacity duration-300 hover:opacity-100"
+          src="/YomisCash.webp"
+          alt="Logo Orisur"
+        />
+      </div>
+      <h1
+        class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide"
+      >
+        {i18n.HOWITWORKS.FAQ.TITLE}
+      </h1>
+      <PreguntasItem
+        questions={i18n.HOWITWORKS.FAQ.QUESTIONS_1}
+        answers={i18n.HOWITWORKS.FAQ.ANSWER_1}
+      />
+      <PreguntasItem
+        questions={i18n.HOWITWORKS.FAQ.QUESTIONS_2}
+        answers={i18n.HOWITWORKS.FAQ.ANSWER_2}
+      />
+      <PreguntasItem
+        questions={i18n.HOWITWORKS.FAQ.QUESTIONS_3}
+        answers={i18n.HOWITWORKS.FAQ.ANSWER_3}
+      />
+      <PreguntasItem
+        questions={i18n.HOWITWORKS.FAQ.QUESTIONS_4}
+        answers={i18n.HOWITWORKS.FAQ.ANSWER_4}
+      />
+      <PreguntasItem
+        questions={i18n.HOWITWORKS.FAQ.QUESTIONS_5}
+        answers={i18n.HOWITWORKS.FAQ.ANSWER_5}
+      />
+      <PreguntasItem
+        questions={i18n.HOWITWORKS.FAQ.QUESTIONS_6}
+        answers={i18n.HOWITWORKS.FAQ.ANSWER_6}
+      />
+      <PreguntasItem
+        questions={i18n.HOWITWORKS.FAQ.QUESTIONS_7}
+        answers={i18n.HOWITWORKS.FAQ.ANSWER_7}
+      />
+    </section>
+  </main>
 </Layout>
 
 <style>

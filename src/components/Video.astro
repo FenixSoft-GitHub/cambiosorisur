@@ -1,52 +1,63 @@
 ---
 import Logo from "./Logo.astro";
-import { getI18N } from "@/i18n/index"
+import { getI18N } from "@/i18n/index";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <section class="relative h-dvh w-full max-w-[100vw] md:h-[80vh] xl:h-full">
-    <div
-        class="absolute inset-0 h-full justify-center z-10 m-auto flex flex-col items-center w-full"
+  <div
+    class="absolute inset-0 h-full justify-center z-10 m-auto flex flex-col items-center w-full"
+  >
+    <section
+      class="absolute z-10 animate-fade-up flex justify-center items-center gap-8 flex-col"
     >
-        <section
-            class="absolute z-10 animate-fade-up flex justify-center items-center gap-8 flex-col"
-        >
-            <h1
-                class="subtitle flex items-center gap-5 text-4xl md:text-6xl lg:gap-14 lg:text-7xl mb-10 font-tomaso font-extrabold"
-            >
-                <span>O</span>
-                <span>R</span>
-                <span>I</span>
-                <Logo 
-                    class="h-9 w-auto md:h-[3.75rem] lg:h-20 scale-150"
-                    aria-label="A" 
-                />
-                <span>$</span>
-                <span>U</span>
-                <span>R</span>
-            </h1>
+      <h1
+        class="subtitle flex items-center gap-2 text-4xl md:text-6xl lg:gap-4 lg:text-7xl mb-10 font-tomaso font-bold"
+      >
+        <span>Y</span>
+        <span>o</span>
+        <span>m</span>
+        <span>i</span>
+        <span>'</span>
+        <span>s</span>
+        <img
+          class="h-16 w-auto md:h-[3.75rem] lg:h-28 scale-150"
+          src="/YomisCash.webp"
+          alt="Logo Orisur"
+        />
+        <!-- <Logo
+          class="h-9 w-auto md:h-[3.75rem] lg:h-20 scale-150"
+          aria-label="A"
+        /> -->
+        <span>C</span>
+        <span>a</span>
+        <span>s</span>
+        <span>h</span>
+      </h1>
 
-            <p
-                class="subtitle text-gray-800 font-normal text-xl lg:text-2xl text-center text-wrap uppercase px-4"
-            >
-                {i18n.SEO_TITLE_2}
-            </p>
-        </section>
-    </div>
-    <img
-        class="cp-v w-full h-screen object-fill object-top animate-fade-down animate-duration-[2s]" 
-        src="/Playa.webp" alt="Playa tropical"
-    >
-    <img 
-        class="w-full h-full absolute -bottom-48 blur-3xl -z-40"
-        src="/Playa.webp" alt="Playa tropical"
-    >
+      <p
+        class="subtitle text-gray-800 font-normal text-xl lg:text-2xl text-center text-wrap uppercase px-4"
+      >
+        {i18n.SEO_TITLE_2}
+      </p>
+    </section>
+  </div>
+  <img
+    class="cp-v w-full h-screen object-fill object-top animate-fade-down animate-duration-[2s]"
+    src="/Playa.webp"
+    alt="Playa tropical"
+  />
+  <img
+    class="w-full h-full absolute -bottom-48 blur-3xl -z-40"
+    src="/Playa.webp"
+    alt="Playa tropical"
+  />
 </section>
 
 <style>
-    .subtitle {
-        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
-    }
+  .subtitle {
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+  }
 </style>
